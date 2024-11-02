@@ -43,6 +43,7 @@ const pagesBox = {
     sm: "var(--padding-xDir-Sm--)",
     xs: "var(--padding-xDir-Xs--)",
   },
+  py: "0",
 };
 
 const pagesContainerBox = {
