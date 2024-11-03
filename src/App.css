@@ -11,6 +11,12 @@
   color: #ffffff;
 }
 
+/* *,
+*::after,
+*::before {
+  outline: 1px solid lime;
+} */
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -101,13 +107,14 @@
   --favBlue--: #00abfa73;
   --favYellow--: #ccbe02;
 
-  --btnHoverFavBg--: #5f485a63;
+  --btnHoverFavBg--: #1f1a1e63;
   --drawerBg--: linear-gradient(to right, #141e30, #243b55);
   --shimmerTextColor--: linear-gradient(90deg, #757575, #fff);
   --btnHoverBg--: linear-gradient(90deg, #03a8f479, #f441a66e);
   --btnBorderColor--: linear-gradient(90deg, #03a8f4a0, #f441a699);
 
   --boxShadOne--: 0px 0px 60px -10px rgba(0, 171, 250, 0.45);
+  --boxShadTwo--: 0px 0px 40px 6px rgba(255, 221, 0, 0.5);
 
   /*-------| Common Values |-------*/
   --padding-xDir-Lg--: 5.5rem;

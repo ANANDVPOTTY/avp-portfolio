@@ -1,7 +1,7 @@
 import React from "react";
 
 // Mui
-import { Box } from "@mui/material";
+import { Box, Link } from "@mui/material";
 
 // Images & Icons
 import AdjustIcon from "@mui/icons-material/Adjust";
@@ -21,7 +21,14 @@ const FloatingBar = () => {
       <Box sx={iconBox}>
         <Box component="img" src={gmailIcon} alt="mail" sx={iconStyle} />
         <Box component="img" src={linkedinIcon} alt="linkedin" sx={iconStyle} />
-        <Box component="img" src={githubIcon} alt="github" sx={iconStyle} />
+
+        <Link
+          href="https://github.com/ANANDVPOTTY"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Box component="img" src={githubIcon} alt="github" sx={iconStyle} />
+        </Link>
       </Box>
 
       <Box sx={lineWithIcon}>
@@ -80,7 +87,7 @@ const lineWithIcon = {
 
 const circleIconStyle = {
   fill: "var(--favYellow--)",
-  boxShadow: "0px 0px 40px 6px rgba(255,221,0,0.5)",
+  boxShadow: "var(--boxShadTwo--)",
   animation: `${flashAnimation} 1.5s both ease-in-out`,
   borderRadius: "50px",
 };
@@ -95,6 +102,6 @@ const lineStyle = {
     xs: "auto",
   },
 
-  bgcolor: "var(--fullWhite--)",
+  bgcolor: "var(--lightGrayTypeOne--)",
   borderRadius: "8px",
 };

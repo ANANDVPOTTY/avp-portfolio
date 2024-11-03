@@ -2,10 +2,9 @@ import React from "react";
 
 // Mui
 import { Box, Fade, Typography } from "@mui/material";
-import { aboutText } from "../../datas/Data";
 
 // Components used
-import { fadeIn } from "../../ui-helpers/animations/CustomAnimations";
+import { aboutText } from "../../datas/Data";
 
 const AboutPage = () => {
   return (
@@ -48,6 +47,25 @@ const parentBox = {
   flexDirection: "column",
   alignItems: "center",
   gap: "2rem",
+
+  my: {
+    lg: "4rem",
+    md: "4rem",
+    sm: "4rem",
+    xs: "4rem",
+  },
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    height: "auto",
+    my: "4rem",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    height: "auto",
+    my: "2rem",
+  },
 };
 
 const aboutBox = {
@@ -98,6 +116,16 @@ const textOneStyle = {
   fontWeight: "400",
   color: "var(--fullWhite--)",
   textAlign: "center",
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    fontSize: "var(--fontFor-48px-Md--)",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    fontSize: "var(--fontFor-48px-Xs--)",
+  },
 };
 
 const textTwoStyle = {
@@ -110,6 +138,16 @@ const textTwoStyle = {
 
   fontWeight: "300",
   color: "var(--favPink--)",
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    fontSize: "var(--fontFor-36px-Md--)",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    fontSize: "var(--fontFor-36px-Xs--)",
+  },
 };
 
 const textThreeStyle = {
@@ -124,5 +162,14 @@ const textThreeStyle = {
   color: "var(--lightGrayTypeOne--)",
   textAlign: "center",
   lineHeight: 1.3,
-  animation: `${fadeIn} 0.3s both`,
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    fontSize: "var(--fontFor-26px-Md--)",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    fontSize: "var(--fontFor-26px-Xs--)",
+  },
 };

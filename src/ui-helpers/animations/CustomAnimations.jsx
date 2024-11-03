@@ -43,6 +43,19 @@ export const backAndForth = keyframes`
     }
 `;
 
+//-------|  Forth & Back |-------//
+export const forthAndBack = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px); 
+  }
+  100% {
+    transform: translateY(0);
+  }
+`;
+
 //-------| Fade In |-------//
 export const fadeIn = keyframes`
     0% {
@@ -173,5 +186,15 @@ export const flashAnimation = keyframes`
   }
   25%, 75% {
     opacity: 0;
+  }
+`;
+
+//-------| Moving |-------//
+export const moveAnimation = keyframes`
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
   }
 `;

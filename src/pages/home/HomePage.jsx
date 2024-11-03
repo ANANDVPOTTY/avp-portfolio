@@ -5,9 +5,9 @@ import { Box, IconButton, Button, Fade, Typography } from "@mui/material";
 import { styled, useMediaQuery } from "@mui/system";
 
 // Images & Icons
-import placeholderImg from "../../assets/images/devBlack.png";
-import resumeIcon from "../../assets/images/resumeIcon.svg";
 import mouseIcon from "../../assets/images/mouseIcon.svg";
+import resumeIcon from "../../assets/images/resumeIcon.svg";
+import placeholderImg from "../../assets/images/devBlack.png";
 import doubleArwIcon from "../../assets/images/doubleArrow.svg";
 
 // Tones Used
@@ -121,6 +121,16 @@ const parentBox = {
     sm: "1rem",
     xs: "10px",
   },
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    mt: "1.5rem",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    mt: "1rem",
+  },
 };
 
 const contentBox = {
@@ -164,7 +174,7 @@ const CustomText = styled(Typography)(({ theme, colr, weight, delay }) => ({
   },
 
   [theme.breakpoints.up("lg")]: {
-    fontSize: "var(--fontFor-26px-Sm--)",
+    fontSize: "var(--fontFor-26px-Lg--)",
   },
 
   fontWeight: weight || 400,
@@ -172,6 +182,16 @@ const CustomText = styled(Typography)(({ theme, colr, weight, delay }) => ({
   lineHeight: 1.3,
   animation: `${fadeInLeft} 1s both`,
   animationDelay: `${delay || 0}s`,
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    fontSize: "var(--fontFor-26px-Md--)",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    fontSize: "var(--fontFor-20px-Xs--)",
+  },
 }));
 
 const resumeBtn = {
@@ -204,7 +224,7 @@ const resumeBtn = {
 
   /*-------| Display Scale 150% |-------*/
   "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
-    fontSize: "var(--fontFor-26px-Xs--)",
+    fontSize: "var(--fontFor-20px-Xs--)",
   },
 };
 
@@ -213,11 +233,6 @@ const dpBox = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  transition: "transform 0.3s ease-in-out",
-
-  "&:hover": {
-    transform: "scale(1.1)",
-  },
 };
 
 const dpStyle = {
@@ -233,6 +248,11 @@ const dpStyle = {
   boxShadow: "var(--boxShadOne--)",
   animation: `${bounceInRight} 1.5s both`,
   animationDelay: "0.18s",
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    width: "300px",
+  },
 };
 
 const mouseBox = {

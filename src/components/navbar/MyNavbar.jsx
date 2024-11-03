@@ -22,6 +22,7 @@ import {
 // Images & Icons
 import MenuIcon from "@mui/icons-material/Menu";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import logoImg from "../../assets/images/logos/lineLogoLite.svg";
 
 // Tones Used
 import clickTone from "../../assets/tones/MouseClick.mp3";
@@ -62,7 +63,7 @@ const MyNavbar = () => {
     <Fade in={true} timeout={500}>
       <Box>
         <ButtonBase sx={{ ...shimmerText, my: 2 }} onClick={handleLogoClick}>
-          Anand V Potty
+          <Box component="img" src={logoImg} sx={{ width: "38px" }} />
         </ButtonBase>
 
         <Divider color="var(--darkBlack--)" />
@@ -113,7 +114,7 @@ const MyNavbar = () => {
                   variant="outlined"
                   size="small"
                   onClick={() => handleMenuItem(item?.link)}
-                  sx={registerBtn}
+                  sx={navBtns}
                 >
                   {item.menu}
                 </Button>
@@ -160,13 +161,11 @@ const appBarBox = {
   /*-------| Display Scale 125% |-------*/
   "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
     height: "auto",
-    px: "3rem",
   },
 
   /*-------| Display Scale 150% |-------*/
   "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
-    height: "55px",
-    px: "2rem",
+    height: "auto",
   },
 };
 
@@ -194,6 +193,16 @@ const shimmerText = {
   animation: `${shimmer} 10s linear`,
   position: "relative",
   overflow: "hidden",
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    fontSize: "var(--fontFor-24px-Md--)",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    fontSize: "var(--fontFor-24px-Xs--)",
+  },
 };
 
 const drawerStyle = (drawerWidth) => ({
@@ -262,7 +271,7 @@ const menuBtnContainer = {
   borderRadius: "6px",
 };
 
-const registerBtn = {
+const navBtns = {
   p: "1px 10px",
 
   fontSize: {
@@ -291,5 +300,7 @@ const registerBtn = {
   /*-------| Display Scale 150% |-------*/
   "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
     fontSize: "var(--fontFor-16px-Xs--)",
+    p: "1px 1px",
+    lineHeight: 2.5,
   },
 };

@@ -1,63 +1,113 @@
 // Mui
-import { Box, Fade, Typography } from "@mui/material";
+import { Box, Fade, IconButton, Typography } from "@mui/material";
+
+// Images & Icons
+import chartIcon from "../../assets/images/chartIcon.svg";
 
 // Components used
 import { skillItems } from "../../datas/Data";
+import { useState } from "react";
+import SkillChartModal from "./others/SkillChartModal";
 
 const SkillsPage = () => {
+  const [chartOpen, setChartOpen] = useState(false);
+
+  const handleOpenChart = () => setChartOpen(true);
+  const handleCloseChart = () => setChartOpen(false);
+
   return (
-    <Fade in={true} timeout={500}>
-      <Box sx={parentBox}>
-        <Box>
-          <Typography sx={textOneStyle}>Skills</Typography>
-        </Box>
+    <>
+      <Fade in={true} timeout={500}>
+        <Box sx={parentBox}>
+          <Box>
+            <Typography sx={textOneStyle}>Skills</Typography>
+          </Box>
 
-        <Box sx={contentBox}>
-          {skillItems?.map((item) => {
-            return (
-              <Box sx={skillBox} key={item?.id}>
-                <Typography sx={textTwoStyle}>
-                  {item?.heading ?? "--"}
-                </Typography>
+          <Box sx={contentBox}>
+            {skillItems?.map((item) => {
+              return (
+                <Box sx={skillBox} key={item?.id}>
+                  <Box sx={textWithIconBox}>
+                    <Typography sx={textTwoStyle}>
+                      {item?.heading ?? "--"}
+                    </Typography>
 
-                <Box sx={itemBox}>
-                  {item?.skill.map((subItem) => {
-                    return (
-                      <Box key={subItem?.id} sx={eachItemBox}>
-                        <Box sx={iconBox}>
-                          <Box
-                            component="img"
-                            src={subItem.icon}
-                            sx={iconStyle}
-                            alt="icon"
-                          />
+                    <IconButton
+                      sx={chartIconBtn}
+                      title={"Chart"}
+                      onClick={handleOpenChart}
+                    >
+                      <Box component="img" src={chartIcon} alt="icon" />
+                    </IconButton>
+                  </Box>
+
+                  <Box sx={itemBox}>
+                    {item?.skill.map((subItem) => {
+                      return (
+                        <Box key={subItem?.id} sx={eachItemBox}>
+                          <Box sx={iconBox}>
+                            <Box
+                              component="img"
+                              src={subItem.icon}
+                              sx={iconStyle}
+                              alt="icon"
+                            />
+                          </Box>
+
+                          <Typography sx={textThreeStyle}>
+                            {subItem?.itemName ?? "--"}
+                          </Typography>
                         </Box>
-
-                        <Typography sx={textThreeStyle}>
-                          {subItem?.itemName ?? "--"}
-                        </Typography>
-                      </Box>
-                    );
-                  })}
+                      );
+                    })}
+                  </Box>
                 </Box>
-              </Box>
-            );
-          })}
+              );
+            })}
+          </Box>
         </Box>
-      </Box>
-    </Fade>
+      </Fade>
+
+      {chartOpen && (
+        <SkillChartModal open={chartOpen} handleClose={handleCloseChart} />
+      )}
+    </>
   );
 };
 
 export default SkillsPage;
 
 const parentBox = {
-  height: "auto",
+  height: {
+    lg: "auto",
+    md: "auto",
+    sm: "auto",
+    xs: "auto",
+  },
+
   display: "flex",
   flexDirection: "column",
   gap: "2rem",
-  mb: "2rem",
   px: "1rem",
+
+  my: {
+    lg: "4rem",
+    md: "4rem",
+    sm: "4rem",
+    xs: "4rem",
+  },
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    height: "auto",
+    my: "4rem",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    height: "auto",
+    my: "2rem",
+  },
 };
 
 const contentBox = {
@@ -82,6 +132,21 @@ const skillBox = {
     md: "0",
     sm: "0",
     xs: "0",
+  },
+};
+
+const textWithIconBox = {
+  display: "flex",
+  alignItems: "center",
+  gap: "8px",
+};
+
+const chartIconBtn = {
+  transition: "transform 0.2s ease-in-out",
+
+  "&:hover": {
+    transform: "scale(1.4)",
+    bgcolor: "var(--btnHoverFavBg--)",
   },
 };
 
@@ -139,6 +204,16 @@ const textOneStyle = {
   fontWeight: "400",
   color: "var(--fullWhite--)",
   textAlign: "center",
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    fontSize: "var(--fontFor-48px-Md--)",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    fontSize: "var(--fontFor-48px-Xs--)",
+  },
 };
 
 const textTwoStyle = {
@@ -151,6 +226,16 @@ const textTwoStyle = {
 
   fontWeight: "200",
   color: "var(--favPink--)",
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    fontSize: "var(--fontFor-36px-Md--)",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    fontSize: "var(--fontFor-36px-Xs--)",
+  },
 };
 
 const textThreeStyle = {
@@ -165,4 +250,14 @@ const textThreeStyle = {
   color: "var(--fullWhite--)",
   textAlign: "center",
   lineHeight: 1.3,
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    fontSize: "var(--fontFor-20px-Md--)",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    fontSize: "var(--fontFor-20px-Xs--)",
+  },
 };
