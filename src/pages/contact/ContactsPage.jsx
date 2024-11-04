@@ -1,19 +1,32 @@
-import React from "react";
+import React, { useRef } from "react";
 import { ReactTyped } from "react-typed";
 
 // Mui
-import { Box, Fade, Link, Typography } from "@mui/material";
+import { Box, Fade, IconButton, Link, Typography } from "@mui/material";
 
 // Images & Icons
 import arrowUpIcon from "../../assets/images/arrowUp.svg";
+
+// Tones Used
+import clickTone from "../../assets/tones/MouseClick.mp3";
 
 // Components used
 import { contactItems } from "../../datas/Data";
 import { forthAndBack } from "../../ui-helpers/animations/CustomAnimations";
 
-const ContactsPage = () => {
+const ContactsPage = ({ onNavigate }) => {
+  const audioRef = useRef(new Audio(clickTone));
+
+  const handleArrowClick = () => {
+    audioRef.current.play().catch((error) => {
+      console.error("Error playing sound:", error);
+    });
+
+    onNavigate("home");
+  };
+
   return (
-    <Fade in={true} timeout={500}>
+    <Fade in={true} timeout={500} id="contact">
       <Box sx={parentBox}>
         <Typography sx={textOneStyle}>Let's Make Things — Happen</Typography>
         <Typography sx={textTwoStyle}>
@@ -54,16 +67,15 @@ const ContactsPage = () => {
           ))}
         </Box>
 
-        <Box sx={{ py: "2rem" }}>
-          <Box
-            component="img"
-            src={arrowUpIcon}
-            alt="icon"
-            sx={{
-              animation: `${forthAndBack} 1.5s ease-in-out infinite`,
-              transform: "rotate(180deg)",
-            }}
-          />
+        <Box sx={arrowBtnBox}>
+          <IconButton onClick={handleArrowClick}>
+            <Box
+              component="img"
+              src={arrowUpIcon}
+              alt="icon"
+              sx={arrowIconStyle}
+            />
+          </IconButton>
         </Box>
       </Box>
     </Fade>
@@ -157,6 +169,14 @@ const iconsStyle = {
   width: "100%",
   height: "auto",
   objectFit: "contain",
+};
+
+const arrowBtnBox = {
+  py: "1rem",
+};
+
+const arrowIconStyle = {
+  animation: `${forthAndBack} 1.5s ease-in-out infinite`,
 };
 
 //-------| Text Style |-------//

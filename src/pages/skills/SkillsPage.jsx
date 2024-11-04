@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
+
 // Mui
 import { Box, Fade, IconButton, Typography } from "@mui/material";
 
@@ -6,8 +9,8 @@ import chartIcon from "../../assets/images/chartIcon.svg";
 
 // Components used
 import { skillItems } from "../../datas/Data";
-import { useState } from "react";
 import SkillChartModal from "./others/SkillChartModal";
+import { fadeInFromLeft } from "../../ui-helpers/animations/CustomAnimations";
 
 const SkillsPage = () => {
   const [chartOpen, setChartOpen] = useState(false);
@@ -17,16 +20,16 @@ const SkillsPage = () => {
 
   return (
     <>
-      <Fade in={true} timeout={500}>
+      <Fade in={true} timeout={500} id="skills">
         <Box sx={parentBox}>
           <Box>
             <Typography sx={textOneStyle}>Skills</Typography>
           </Box>
 
           <Box sx={contentBox}>
-            {skillItems?.map((item) => {
+            {skillItems?.map((item, index) => {
               return (
-                <Box sx={skillBox} key={item?.id}>
+                <Box key={item?.id} sx={skillBox}>
                   <Box sx={textWithIconBox}>
                     <Typography sx={textTwoStyle}>
                       {item?.heading ?? "--"}
@@ -44,20 +47,33 @@ const SkillsPage = () => {
                   <Box sx={itemBox}>
                     {item?.skill.map((subItem) => {
                       return (
-                        <Box key={subItem?.id} sx={eachItemBox}>
-                          <Box sx={iconBox}>
-                            <Box
-                              component="img"
-                              src={subItem.icon}
-                              sx={iconStyle}
-                              alt="icon"
-                            />
-                          </Box>
+                        <motion.div
+                          key={subItem?.id}
+                          initial={{ opacity: 0, translateX: "-100%" }}
+                          whileInView={{ opacity: 1, translateX: 0 }}
+                          viewport={{ once: true, amount: 0.1 }}
+                          transition={{
+                            duration: 0.6,
+                            delay: index * 0.2,
+                            ease: [0.8, 0.8, 0.8, 1],
+                          }}
+                          variants={fadeInFromLeft}
+                        >
+                          <Box sx={eachItemBox}>
+                            <Box sx={iconBox}>
+                              <Box
+                                component="img"
+                                src={subItem.icon}
+                                sx={iconStyle}
+                                alt="icon"
+                              />
+                            </Box>
 
-                          <Typography sx={textThreeStyle}>
-                            {subItem?.itemName ?? "--"}
-                          </Typography>
-                        </Box>
+                            <Typography sx={textThreeStyle}>
+                              {subItem?.itemName ?? "--"}
+                            </Typography>
+                          </Box>
+                        </motion.div>
                       );
                     })}
                   </Box>

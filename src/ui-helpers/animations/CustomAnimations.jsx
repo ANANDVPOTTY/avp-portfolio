@@ -189,12 +189,7 @@ export const flashAnimation = keyframes`
   }
 `;
 
-//-------| Moving |-------//
-export const moveAnimation = keyframes`
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 40px 40px;
-  }
-`;
+export const fadeInFromLeft = {
+  hidden: { opacity: 0, x: -50, scale: 0.9 },
+  visible: { opacity: 1, x: 0, scale: 1 },
+};

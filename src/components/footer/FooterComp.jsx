@@ -1,21 +1,24 @@
 import React from "react";
 
 // Mui
-import { Box, Typography } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 
 // Images & Icons
 import logo from "../../assets/images/logos/roundLogoDark.svg";
 
 // Components used
-import { moveAnimation } from "../../ui-helpers/animations/CustomAnimations";
 
-const FooterComp = () => {
+const FooterComp = ({ onNavigate }) => {
+  const handleLogoClick = () => {
+    onNavigate("home");
+  };
+
   return (
     <Box sx={parentBox}>
       <Box sx={contentBox}>
-        <Box>
-          <Box component="img" src={logo} alt="icon" sx={{ width: "70px" }} />
-        </Box>
+        <IconButton onClick={handleLogoClick}>
+          <Box component="img" src={logo} alt="icon" sx={logoStyle} />
+        </IconButton>
 
         <Box>
           <Box>
@@ -93,6 +96,10 @@ const contentBox = {
   pb: "1rem",
   textAlign: "center",
   borderBottom: "4px solid #1e698092",
+};
+
+const logoStyle = {
+  width: "70px",
 };
 
 //-------| Text Style |-------//

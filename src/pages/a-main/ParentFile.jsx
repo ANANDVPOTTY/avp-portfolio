@@ -16,18 +16,25 @@ import FooterComp from "../../components/footer/FooterComp";
 import FloatingBar from "../../components/floating-bar/FloatingBar";
 
 const ParentFile = () => {
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <Box sx={pagesBox}>
-        <MyNavbar />
+        <MyNavbar onNavigate={scrollToSection} />
 
         <Box sx={pagesContainerBox}>
-          <HomePage />
+          <HomePage onNavigate={scrollToSection} />
           <AboutPage />
           <SkillsPage />
           <ProjectsPage />
-          <ContactsPage />
-          <FooterComp />
+          <ContactsPage onNavigate={scrollToSection} />
+          <FooterComp onNavigate={scrollToSection} />
         </Box>
       </Box>
 

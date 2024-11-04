@@ -27,23 +27,28 @@ import linkedinIcon from "../assets/images/linkedinIcon.svg";
 export const navItems = [
   {
     id: 1,
-    menu: "About",
-    link: "/about",
+    menu: "Home",
+    navId: "home",
   },
   {
     id: 2,
-    menu: "Skills",
-    link: "/skills",
+    menu: "About",
+    navId: "about",
   },
   {
     id: 3,
-    menu: "Projects",
-    link: "/projects",
+    menu: "Skills",
+    navId: "skills",
   },
   {
     id: 4,
+    menu: "Projects",
+    navId: "projects",
+  },
+  {
+    id: 5,
     menu: "Contact",
-    link: "/contact",
+    navId: "contact",
   },
 ];
 

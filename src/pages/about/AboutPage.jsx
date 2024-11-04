@@ -1,30 +1,45 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 // Mui
 import { Box, Fade, Typography } from "@mui/material";
 
 // Components used
 import { aboutText } from "../../datas/Data";
+import { fadeInFromLeft } from "../../ui-helpers/animations/CustomAnimations";
 
 const AboutPage = () => {
   return (
-    <Fade in={true} timeout={500}>
+    <Fade in={true} timeout={500} id="about">
       <Box sx={parentBox}>
         <Box>
           <Typography sx={textOneStyle}>About My</Typography>
         </Box>
 
         <Box sx={aboutBox}>
-          {aboutText?.map((item) => {
+          {aboutText?.map((item, index) => {
             return (
-              <Box key={item?.id} sx={eachItemBox}>
-                <Typography sx={textTwoStyle}>
-                  {item?.heading ?? "--"}
-                </Typography>
-                <Typography sx={textThreeStyle}>
-                  {item?.dscr ?? "--"}
-                </Typography>
-              </Box>
+              <motion.div
+                key={item?.id}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.9 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.4,
+                  ease: [0.6, 0.7, 0.8, 1],
+                }}
+                variants={fadeInFromLeft}
+              >
+                <Box sx={eachItemBox}>
+                  <Typography sx={textTwoStyle}>
+                    {item?.heading ?? "--"}
+                  </Typography>
+                  <Typography sx={textThreeStyle}>
+                    {item?.dscr ?? "--"}
+                  </Typography>
+                </Box>
+              </motion.div>
             );
           })}
         </Box>
@@ -37,7 +52,7 @@ export default AboutPage;
 
 const parentBox = {
   height: {
-    lg: "55vh",
+    lg: "70vh",
     md: "auto",
     sm: "auto",
     xs: "auto",
@@ -46,6 +61,7 @@ const parentBox = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  justifyContent: "center",
   gap: "2rem",
 
   my: {

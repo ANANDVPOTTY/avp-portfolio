@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 // Mui
 import { Box, IconButton, Button, Fade, Typography } from "@mui/material";
@@ -11,6 +11,7 @@ import placeholderImg from "../../assets/images/devBlack.png";
 import doubleArwIcon from "../../assets/images/doubleArrow.svg";
 
 // Tones Used
+import clickTone from "../../assets/tones/MouseClick.mp3";
 
 // Components used
 import MuiSnackToast from "../../ui-helpers/mui-toast/MuiSnackToast";
@@ -22,17 +23,31 @@ import {
 } from "../../ui-helpers/animations/CustomAnimations";
 import { homeText } from "../../datas/Data";
 
-const HomePage = () => {
+const HomePage = ({ onNavigate }) => {
   const isSmall = useMediaQuery("(max-width:220px)");
+  const audioRef = useRef(new Audio(clickTone));
+
   const [openToast, setOpenToast] = useState(false);
 
   const handleResumeBtn = () => {
+    audioRef.current.play().catch((error) => {
+      console.error("Error playing sound:", error);
+    });
+
     setOpenToast(true);
+  };
+
+  const handleMouseBtn = (menuLink) => {
+    audioRef.current.play().catch((error) => {
+      console.error("Error playing sound:", error);
+    });
+
+    onNavigate("about");
   };
 
   return (
     <>
-      <Fade in={true} timeout={500}>
+      <Fade in={true} timeout={500} id="home">
         <Box sx={parentBox}>
           <Box sx={contentBox}>
             <Box sx={textContainer}>
@@ -79,12 +94,15 @@ const HomePage = () => {
 
           <Box sx={mouseBox}>
             <Box component="img" src={mouseIcon} alt="mouse" />
-            <Box
-              component="img"
-              src={doubleArwIcon}
-              alt="arrows"
-              sx={arrowAnimation}
-            />
+
+            <IconButton onClick={handleMouseBtn}>
+              <Box
+                component="img"
+                src={doubleArwIcon}
+                alt="arrows"
+                sx={arrowAnimation}
+              />
+            </IconButton>
           </Box>
         </Box>
       </Fade>
@@ -104,7 +122,7 @@ export default HomePage;
 
 const parentBox = {
   height: {
-    lg: "88vh",
+    lg: "90vh",
     md: "auto",
     sm: "auto",
     xs: "auto",
@@ -114,23 +132,6 @@ const parentBox = {
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "space-between",
-
-  mt: {
-    lg: "3rem",
-    md: "1rem",
-    sm: "1rem",
-    xs: "10px",
-  },
-
-  /*-------| Display Scale 125% |-------*/
-  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
-    mt: "1.5rem",
-  },
-
-  /*-------| Display Scale 150% |-------*/
-  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
-    mt: "1rem",
-  },
 };
 
 const contentBox = {
@@ -256,7 +257,6 @@ const dpStyle = {
 };
 
 const mouseBox = {
-  height: "125px",
   display: {
     lg: "flex",
     md: "none",

@@ -1,31 +1,46 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 // Mui
 import { Box, Fade, Typography } from "@mui/material";
 
 // Components used
 import { projectText } from "../../datas/Data";
+import { fadeInFromLeft } from "../../ui-helpers/animations/CustomAnimations";
 
 const ProjectsPage = () => {
   return (
-    <Fade in={true} timeout={500}>
+    <Fade in={true} timeout={500} id="projects">
       <Box sx={parentBox}>
         <Box>
           <Typography sx={textOneStyle}>Projects</Typography>
         </Box>
 
-        <Box sx={aboutBox}>
-          {projectText?.map((item) => {
+        <Box sx={contentBox}>
+          {projectText?.map((item, index) => {
             return (
-              <Box key={item?.id} sx={eachItemBox}>
-                <Typography sx={textTwoStyle}>
-                  {item?.heading ?? "--"}
-                </Typography>
+              <motion.div
+                key={item?.id}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.9 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.4,
+                  ease: [0.6, 0.7, 0.8, 1],
+                }}
+                variants={fadeInFromLeft}
+              >
+                <Box sx={eachItemBox}>
+                  <Typography sx={textTwoStyle}>
+                    {item?.heading ?? "--"}
+                  </Typography>
 
-                <Typography sx={textThreeStyle}>
-                  {item?.dscr ?? "--"}
-                </Typography>
-              </Box>
+                  <Typography sx={textThreeStyle}>
+                    {item?.dscr ?? "--"}
+                  </Typography>
+                </Box>
+              </motion.div>
             );
           })}
         </Box>
@@ -38,7 +53,7 @@ export default ProjectsPage;
 
 const parentBox = {
   height: {
-    lg: "55vh",
+    lg: "60vh",
     md: "auto",
     sm: "auto",
     xs: "auto",
@@ -47,14 +62,8 @@ const parentBox = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  justifyContent: "center",
   gap: "2rem",
-
-  my: {
-    lg: "4rem",
-    md: "4rem",
-    sm: "4rem",
-    xs: "4rem",
-  },
 
   /*-------| Display Scale 125% |-------*/
   "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
@@ -69,7 +78,7 @@ const parentBox = {
   },
 };
 
-const aboutBox = {
+const contentBox = {
   width: {
     lg: "min(85vw, 100%)",
     md: "min(60vw, 100%)",
