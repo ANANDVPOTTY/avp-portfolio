@@ -1,31 +1,45 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 // Mui
 import { Box, Fade, Typography } from "@mui/material";
-import { aboutText } from "../../datas/Data";
 
 // Components used
-import { fadeIn } from "../../ui-helpers/animations/CustomAnimations";
+import { aboutText } from "../../datas/Data";
+import { fadeInFromLeft } from "../../ui-helpers/animations/CustomAnimations";
 
 const AboutPage = () => {
   return (
-    <Fade in={true} timeout={500}>
+    <Fade in={true} timeout={500} id="about">
       <Box sx={parentBox}>
         <Box>
           <Typography sx={textOneStyle}>About My</Typography>
         </Box>
 
         <Box sx={aboutBox}>
-          {aboutText?.map((item) => {
+          {aboutText?.map((item, index) => {
             return (
-              <Box key={item?.id} sx={eachItemBox}>
-                <Typography sx={textTwoStyle}>
-                  {item?.heading ?? "--"}
-                </Typography>
-                <Typography sx={textThreeStyle}>
-                  {item?.dscr ?? "--"}
-                </Typography>
-              </Box>
+              <motion.div
+                key={item?.id}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.9 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.4,
+                  ease: [0.6, 0.7, 0.8, 1],
+                }}
+                variants={fadeInFromLeft}
+              >
+                <Box sx={eachItemBox}>
+                  <Typography sx={textTwoStyle}>
+                    {item?.heading ?? "--"}
+                  </Typography>
+                  <Typography sx={textThreeStyle}>
+                    {item?.dscr ?? "--"}
+                  </Typography>
+                </Box>
+              </motion.div>
             );
           })}
         </Box>
@@ -38,7 +52,7 @@ export default AboutPage;
 
 const parentBox = {
   height: {
-    lg: "55vh",
+    lg: "70vh",
     md: "auto",
     sm: "auto",
     xs: "auto",
@@ -47,7 +61,27 @@ const parentBox = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  justifyContent: "center",
   gap: "2rem",
+
+  my: {
+    lg: "4rem",
+    md: "4rem",
+    sm: "4rem",
+    xs: "4rem",
+  },
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    height: "auto",
+    my: "4rem",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    height: "auto",
+    my: "2rem",
+  },
 };
 
 const aboutBox = {
@@ -98,6 +132,16 @@ const textOneStyle = {
   fontWeight: "400",
   color: "var(--fullWhite--)",
   textAlign: "center",
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    fontSize: "var(--fontFor-48px-Md--)",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    fontSize: "var(--fontFor-48px-Xs--)",
+  },
 };
 
 const textTwoStyle = {
@@ -110,6 +154,16 @@ const textTwoStyle = {
 
   fontWeight: "300",
   color: "var(--favPink--)",
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    fontSize: "var(--fontFor-36px-Md--)",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    fontSize: "var(--fontFor-36px-Xs--)",
+  },
 };
 
 const textThreeStyle = {
@@ -124,5 +178,14 @@ const textThreeStyle = {
   color: "var(--lightGrayTypeOne--)",
   textAlign: "center",
   lineHeight: 1.3,
-  animation: `${fadeIn} 0.3s both`,
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    fontSize: "var(--fontFor-26px-Md--)",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    fontSize: "var(--fontFor-26px-Xs--)",
+  },
 };

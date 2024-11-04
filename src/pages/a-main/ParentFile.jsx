@@ -7,23 +7,34 @@ import { Box } from "@mui/material";
 import HomePage from "../home/HomePage";
 import AboutPage from "../about/AboutPage";
 import SkillsPage from "../skills/SkillsPage";
-import ProjectsPage from "../projects/ProjectsPage";
 import ContactsPage from "../contact/ContactsPage";
+import ProjectsPage from "../projects/ProjectsPage";
+
+// Others
 import MyNavbar from "../../components/navbar/MyNavbar";
+import FooterComp from "../../components/footer/FooterComp";
 import FloatingBar from "../../components/floating-bar/FloatingBar";
 
 const ParentFile = () => {
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <Box sx={pagesBox}>
-        <MyNavbar />
+        <MyNavbar onNavigate={scrollToSection} />
 
         <Box sx={pagesContainerBox}>
-          <HomePage />
+          <HomePage onNavigate={scrollToSection} />
           <AboutPage />
           <SkillsPage />
           <ProjectsPage />
-          <ContactsPage />
+          <ContactsPage onNavigate={scrollToSection} />
+          <FooterComp onNavigate={scrollToSection} />
         </Box>
       </Box>
 
@@ -43,7 +54,6 @@ const pagesBox = {
     sm: "var(--padding-xDir-Sm--)",
     xs: "var(--padding-xDir-Xs--)",
   },
-  py: "0",
 };
 
 const pagesContainerBox = {
@@ -55,10 +65,20 @@ const pagesContainerBox = {
   },
 
   overflowY: "auto",
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    height: "calc(100vh - 8.9vh)",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    height: "calc(100vh - 11vh)",
+  },
 };
 
 const floatingBarBox = {
-  px: "1rem",
+  mx: "1rem",
   position: "absolute",
   left: "0",
   bottom: "0",

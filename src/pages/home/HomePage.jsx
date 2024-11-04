@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 // Mui
 import { Box, IconButton, Button, Fade, Typography } from "@mui/material";
 import { styled, useMediaQuery } from "@mui/system";
 
 // Images & Icons
-import placeholderImg from "../../assets/images/devBlack.png";
-import resumeIcon from "../../assets/images/resumeIcon.svg";
 import mouseIcon from "../../assets/images/mouseIcon.svg";
+import resumeIcon from "../../assets/images/resumeIcon.svg";
+import placeholderImg from "../../assets/images/devBlack.png";
 import doubleArwIcon from "../../assets/images/doubleArrow.svg";
 
 // Tones Used
+import clickTone from "../../assets/tones/MouseClick.mp3";
 
 // Components used
 import MuiSnackToast from "../../ui-helpers/mui-toast/MuiSnackToast";
@@ -22,17 +23,31 @@ import {
 } from "../../ui-helpers/animations/CustomAnimations";
 import { homeText } from "../../datas/Data";
 
-const HomePage = () => {
+const HomePage = ({ onNavigate }) => {
   const isSmall = useMediaQuery("(max-width:220px)");
+  const audioRef = useRef(new Audio(clickTone));
+
   const [openToast, setOpenToast] = useState(false);
 
   const handleResumeBtn = () => {
+    audioRef.current.play().catch((error) => {
+      console.error("Error playing sound:", error);
+    });
+
     setOpenToast(true);
+  };
+
+  const handleMouseBtn = (menuLink) => {
+    audioRef.current.play().catch((error) => {
+      console.error("Error playing sound:", error);
+    });
+
+    onNavigate("about");
   };
 
   return (
     <>
-      <Fade in={true} timeout={500}>
+      <Fade in={true} timeout={500} id="home">
         <Box sx={parentBox}>
           <Box sx={contentBox}>
             <Box sx={textContainer}>
@@ -79,12 +94,15 @@ const HomePage = () => {
 
           <Box sx={mouseBox}>
             <Box component="img" src={mouseIcon} alt="mouse" />
-            <Box
-              component="img"
-              src={doubleArwIcon}
-              alt="arrows"
-              sx={arrowAnimation}
-            />
+
+            <IconButton onClick={handleMouseBtn}>
+              <Box
+                component="img"
+                src={doubleArwIcon}
+                alt="arrows"
+                sx={arrowAnimation}
+              />
+            </IconButton>
           </Box>
         </Box>
       </Fade>
@@ -104,7 +122,7 @@ export default HomePage;
 
 const parentBox = {
   height: {
-    lg: "88vh",
+    lg: "90vh",
     md: "auto",
     sm: "auto",
     xs: "auto",
@@ -114,13 +132,6 @@ const parentBox = {
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "space-between",
-
-  mt: {
-    lg: "3rem",
-    md: "1rem",
-    sm: "1rem",
-    xs: "10px",
-  },
 };
 
 const contentBox = {
@@ -164,7 +175,7 @@ const CustomText = styled(Typography)(({ theme, colr, weight, delay }) => ({
   },
 
   [theme.breakpoints.up("lg")]: {
-    fontSize: "var(--fontFor-26px-Sm--)",
+    fontSize: "var(--fontFor-26px-Lg--)",
   },
 
   fontWeight: weight || 400,
@@ -172,6 +183,16 @@ const CustomText = styled(Typography)(({ theme, colr, weight, delay }) => ({
   lineHeight: 1.3,
   animation: `${fadeInLeft} 1s both`,
   animationDelay: `${delay || 0}s`,
+
+  /*-------| Display Scale 125% |-------*/
+  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+    fontSize: "var(--fontFor-26px-Md--)",
+  },
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    fontSize: "var(--fontFor-20px-Xs--)",
+  },
 }));
 
 const resumeBtn = {
@@ -204,7 +225,7 @@ const resumeBtn = {
 
   /*-------| Display Scale 150% |-------*/
   "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
-    fontSize: "var(--fontFor-26px-Xs--)",
+    fontSize: "var(--fontFor-20px-Xs--)",
   },
 };
 
@@ -213,11 +234,6 @@ const dpBox = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  transition: "transform 0.3s ease-in-out",
-
-  "&:hover": {
-    transform: "scale(1.1)",
-  },
 };
 
 const dpStyle = {
@@ -233,10 +249,14 @@ const dpStyle = {
   boxShadow: "var(--boxShadOne--)",
   animation: `${bounceInRight} 1.5s both`,
   animationDelay: "0.18s",
+
+  /*-------| Display Scale 150% |-------*/
+  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+    width: "300px",
+  },
 };
 
 const mouseBox = {
-  height: "125px",
   display: {
     lg: "flex",
     md: "none",

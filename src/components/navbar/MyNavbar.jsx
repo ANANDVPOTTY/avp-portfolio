@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 // Mui
 import {
@@ -22,35 +21,34 @@ import {
 // Images & Icons
 import MenuIcon from "@mui/icons-material/Menu";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import logo from "../../assets/images/logos/roundLogoDark.svg";
+import logoImg from "../../assets/images/logos/lineLogoLite.svg";
 
 // Tones Used
 import clickTone from "../../assets/tones/MouseClick.mp3";
 
 // Components used
 import { navItems } from "../../datas/Data";
-import {
-  fadeInDown,
-  shimmer,
-} from "../../ui-helpers/animations/CustomAnimations";
+import { fadeInDown } from "../../ui-helpers/animations/CustomAnimations";
 import ThemeSwitch from "../../ui-helpers/buttons/ThemeSwitch";
 
-const MyNavbar = () => {
-  const navigate = useNavigate();
+const MyNavbar = ({ onNavigate }) => {
   const drawerWidth = 240;
   const audioRef = useRef(new Audio(clickTone));
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleLogoClick = () => {
-    navigate("/");
+    onNavigate("home");
     setMobileOpen(false);
   };
 
-  const handleMenuItem = (menuLink) => {
+  const handleMenuItem = (navId) => {
     audioRef.current.play().catch((error) => {
       console.error("Error playing sound:", error);
     });
-    navigate(menuLink);
+
+    onNavigate(navId);
     setMobileOpen(false);
   };
 
@@ -61,8 +59,8 @@ const MyNavbar = () => {
   const drawerUiContent = (
     <Fade in={true} timeout={500}>
       <Box>
-        <ButtonBase sx={{ ...shimmerText, my: 2 }} onClick={handleLogoClick}>
-          Anand V Potty
+        <ButtonBase sx={{ my: 2 }} onClick={handleLogoClick}>
+          <Box component="img" src={logoImg} sx={{ width: "38px" }} />
         </ButtonBase>
 
         <Divider color="var(--darkBlack--)" />
@@ -72,7 +70,7 @@ const MyNavbar = () => {
             <ListItem
               key={item.id}
               disablePadding
-              onClick={() => handleMenuItem(item?.link)}
+              onClick={() => handleMenuItem(item?.navId)}
             >
               <ListItemButton sx={{ textAlign: "center" }}>
                 <ListItemText primary={item.menu} />
@@ -102,8 +100,8 @@ const MyNavbar = () => {
       <CssBaseline />
       <AppBar sx={appBarBox} elevation={0}>
         <Toolbar sx={contentBox}>
-          <ButtonBase sx={shimmerText} onClick={handleLogoClick}>
-            Anand V Potty
+          <ButtonBase onClick={handleLogoClick}>
+            <Box component="img" src={logo} alt="icon" sx={{ width: "40px" }} />
           </ButtonBase>
 
           <Box sx={btnConatiner}>
@@ -112,8 +110,8 @@ const MyNavbar = () => {
                 <Button
                   variant="outlined"
                   size="small"
-                  onClick={() => handleMenuItem(item?.link)}
-                  sx={registerBtn}
+                  onClick={() => handleMenuItem(item?.navId)}
+                  sx={navBtns}
                 >
                   {item.menu}
                 </Button>
@@ -160,13 +158,11 @@ const appBarBox = {
   /*-------| Display Scale 125% |-------*/
   "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
     height: "auto",
-    px: "3rem",
   },
 
   /*-------| Display Scale 150% |-------*/
   "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
-    height: "55px",
-    px: "2rem",
+    height: "auto",
   },
 };
 
@@ -175,25 +171,6 @@ const contentBox = {
   justifyContent: "space-between",
   alignItems: "center",
   p: "0 !important",
-};
-
-const shimmerText = {
-  fontSize: {
-    lg: "var(--fontFor-24px-Lg--)",
-    md: "var(--fontFor-24px-Md--)",
-    sm: "var(--fontFor-24px-Sm--)",
-    xs: "var(--fontFor-24px-Xs--)",
-  },
-
-  fontWeight: "600",
-  color: "transparent",
-  background: "var(--shimmerTextColor--)",
-  backgroundSize: "200% 100%",
-  backgroundClip: "text",
-  WebkitBackgroundClip: "text",
-  animation: `${shimmer} 10s linear`,
-  position: "relative",
-  overflow: "hidden",
 };
 
 const drawerStyle = (drawerWidth) => ({
@@ -262,7 +239,7 @@ const menuBtnContainer = {
   borderRadius: "6px",
 };
 
-const registerBtn = {
+const navBtns = {
   p: "1px 10px",
 
   fontSize: {
@@ -291,5 +268,7 @@ const registerBtn = {
   /*-------| Display Scale 150% |-------*/
   "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
     fontSize: "var(--fontFor-16px-Xs--)",
+    p: "1px 1px",
+    lineHeight: 2.5,
   },
 };

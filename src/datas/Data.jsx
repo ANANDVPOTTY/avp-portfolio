@@ -2,6 +2,7 @@
 import tsIcon from "../assets/images/ts.svg";
 import jsIcon from "../assets/images/js.svg";
 import twIcon from "../assets/images/tw.svg";
+import fbIcon from "../assets/images/fb.svg";
 import muiIcon from "../assets/images/mui.svg";
 import cssIcon from "../assets/images/css.svg";
 import cuiIcon from "../assets/images/cui.svg";
@@ -10,36 +11,44 @@ import vsIcon from "../assets/images/vscode.svg";
 import antdIcon from "../assets/images/antd.svg";
 import htmlIcon from "../assets/images/html.svg";
 import gsapIcon from "../assets/images/gsap.svg";
+import instaIcon from "../assets/images/insta.svg";
 import reduxIcon from "../assets/images/redux.svg";
 import reactIcon from "../assets/images/react.svg";
 import gitLabIcon from "../assets/images/glab.svg";
 import gitHubIcon from "../assets/images/ghub.svg";
 import notionIcon from "../assets/images/notion.svg";
 import flutterIcon from "../assets/images/flutter.svg";
+import whatsAppIcon from "../assets/images/whatsApp.svg";
 import bootstrapIcon from "../assets/images/bootstrap.svg";
 import styleCompIcon from "../assets/images/styleComp.svg";
+import linkedinIcon from "../assets/images/linkedinIcon.svg";
 
 //-------| Navbar Items |-------//
 export const navItems = [
   {
     id: 1,
-    menu: "About",
-    link: "/about",
+    menu: "Home",
+    navId: "home",
   },
   {
     id: 2,
-    menu: "Skills",
-    link: "/skills",
+    menu: "About",
+    navId: "about",
   },
   {
     id: 3,
-    menu: "Projects",
-    link: "/projects",
+    menu: "Skills",
+    navId: "skills",
   },
   {
     id: 4,
+    menu: "Projects",
+    navId: "projects",
+  },
+  {
+    id: 5,
     menu: "Contact",
-    link: "/contact",
+    navId: "contact",
   },
 ];
 
@@ -232,5 +241,48 @@ export const skillItems = [
         icon: notionIcon,
       },
     ],
+  },
+];
+
+//-------| Project Page Items |-------//
+export const projectText = [
+  {
+    id: 1,
+    heading: "React",
+    dscr: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ad qui, ipsam quisquam aliquid id quia rerum? Natus itaque quas suscipit, odio ipsam dolores voluptatibus ullam soluta maiores, ex blanditiis libero culpa esse illum magni adipisci eveniet eaque deserunt nesciunt.",
+  },
+  {
+    id: 2,
+    heading: "React-Native",
+    dscr: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ad qui, ipsam quisquam aliquid id quia rerum? Natus itaque quas suscipit, odio ipsam dolores voluptatibus ullam soluta maiores, ex blanditiis libero culpa esse illum magni adipisci eveniet eaque deserunt nesciunt.",
+  },
+  {
+    id: 3,
+    heading: "Flutter",
+    dscr: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ad qui, ipsam quisquam aliquid id quia rerum? Natus itaque quas suscipit, odio ipsam dolores voluptatibus ullam soluta maiores, ex blanditiis libero culpa esse illum magni adipisci eveniet eaque deserunt nesciunt.",
+  },
+];
+
+//-------| Contact Page Items |-------//
+export const contactItems = [
+  {
+    id: 1,
+    link: "",
+    icon: instaIcon,
+  },
+  {
+    id: 2,
+    link: "",
+    icon: linkedinIcon,
+  },
+  {
+    id: 3,
+    link: "",
+    icon: fbIcon,
+  },
+  {
+    id: 4,
+    link: "",
+    icon: whatsAppIcon,
   },
 ];

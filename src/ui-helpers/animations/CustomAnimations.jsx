@@ -43,6 +43,19 @@ export const backAndForth = keyframes`
     }
 `;
 
+//-------|  Forth & Back |-------//
+export const forthAndBack = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px); 
+  }
+  100% {
+    transform: translateY(0);
+  }
+`;
+
 //-------| Fade In |-------//
 export const fadeIn = keyframes`
     0% {
@@ -175,3 +188,8 @@ export const flashAnimation = keyframes`
     opacity: 0;
   }
 `;
+
+export const fadeInFromLeft = {
+  hidden: { opacity: 0, x: -50, scale: 0.9 },
+  visible: { opacity: 1, x: 0, scale: 1 },
+};
