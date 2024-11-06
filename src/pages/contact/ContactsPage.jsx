@@ -1,30 +1,14 @@
-import React, { useRef } from "react";
+import React from "react";
 import { ReactTyped } from "react-typed";
 
 // Mui
-import { Box, Fade, IconButton, Link, Typography } from "@mui/material";
-
-// Images & Icons
-import arrowUpIcon from "../../assets/images/arrowUp.svg";
-
-// Tones Used
-import clickTone from "../../assets/tones/MouseClick.mp3";
+import { Box, Fade, Link, Typography } from "@mui/material";
 
 // Components used
 import { contactItems } from "../../datas/Data";
 import { forthAndBack } from "../../ui-helpers/animations/CustomAnimations";
 
-const ContactsPage = ({ onNavigate }) => {
-  const audioRef = useRef(new Audio(clickTone));
-
-  const handleArrowClick = () => {
-    audioRef.current.play().catch((error) => {
-      console.error("Error playing sound:", error);
-    });
-
-    onNavigate("home");
-  };
-
+const ContactsPage = () => {
   return (
     <Fade in={true} timeout={500} id="contact">
       <Box sx={parentBox}>
@@ -65,17 +49,6 @@ const ContactsPage = ({ onNavigate }) => {
               />
             </Link>
           ))}
-        </Box>
-
-        <Box sx={arrowBtnBox}>
-          <IconButton onClick={handleArrowClick}>
-            <Box
-              component="img"
-              src={arrowUpIcon}
-              alt="icon"
-              sx={arrowIconStyle}
-            />
-          </IconButton>
         </Box>
       </Box>
     </Fade>

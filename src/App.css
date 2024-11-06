@@ -11,12 +11,6 @@
   color: #ffffff;
 }
 
-/* *,
-*::after,
-*::before {
-  outline: 1px solid lime;
-} */
-
 ::-webkit-scrollbar {
   display: none;
 }
@@ -134,3 +128,13 @@
 /*
 * Clamp -> clamp(min-fontSize, 900 + 1920, max-fontSize)
 */
+
+body {
+  background-color: var(--lightColor--);
+  color: var(--darkBlack--);
+}
+
+body[data-theme="dark"] {
+  background-color: var(--favBg--);
+  color: var(--fullWhite--);
+}

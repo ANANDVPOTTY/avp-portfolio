@@ -21,20 +21,24 @@ const AboutPage = () => {
             return (
               <motion.div
                 key={item?.id}
+                variants={fadeInFromLeft}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.9 }}
+                viewport={{ once: true }}
                 transition={{
-                  duration: 0.6,
-                  delay: index * 0.4,
-                  ease: [0.6, 0.7, 0.8, 1],
+                  duration: 0.4,
+                  delay: index * 0.2,
+                  type: "spring",
+                  stiffness: 60,
+                  damping: 30,
+                  ease: "easeInOut",
                 }}
-                variants={fadeInFromLeft}
               >
                 <Box sx={eachItemBox}>
                   <Typography sx={textTwoStyle}>
                     {item?.heading ?? "--"}
                   </Typography>
+
                   <Typography sx={textThreeStyle}>
                     {item?.dscr ?? "--"}
                   </Typography>

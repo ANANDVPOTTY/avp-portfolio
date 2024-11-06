@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 // Mui
 import { Box, IconButton, Button, Fade, Typography } from "@mui/material";
@@ -11,21 +11,21 @@ import placeholderImg from "../../assets/images/devBlack.png";
 import doubleArwIcon from "../../assets/images/doubleArrow.svg";
 
 // Tones Used
-import clickTone from "../../assets/tones/MouseClick.mp3";
+import swipeTone from "../../assets/tones/swipe.mp3";
 
 // Components used
-import MuiSnackToast from "../../ui-helpers/mui-toast/MuiSnackToast";
+import { homeText } from "../../datas/Data";
 import {
   backAndForth,
   bounceInRight,
   bounceInUp,
   fadeInLeft,
 } from "../../ui-helpers/animations/CustomAnimations";
-import { homeText } from "../../datas/Data";
+import MuiSnackToast from "../../ui-helpers/mui-toast/MuiSnackToast";
 
 const HomePage = ({ onNavigate }) => {
   const isSmall = useMediaQuery("(max-width:220px)");
-  const audioRef = useRef(new Audio(clickTone));
+  const audioRef = useRef(new Audio(swipeTone));
 
   const [openToast, setOpenToast] = useState(false);
 

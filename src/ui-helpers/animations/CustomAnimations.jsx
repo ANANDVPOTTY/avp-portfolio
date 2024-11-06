@@ -193,3 +193,8 @@ export const fadeInFromLeft = {
   hidden: { opacity: 0, x: -50, scale: 0.9 },
   visible: { opacity: 1, x: 0, scale: 1 },
 };
+
+export const fadeInFromBottom = {
+  hidden: { opacity: 0, y: -100, scale: 0.9 },
+  visible: { opacity: 1, y: 0, scale: 1 },
+};

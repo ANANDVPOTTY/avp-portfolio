@@ -2,92 +2,97 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 // Mui
-import { Box, Fade, IconButton, Typography } from "@mui/material";
-
-// Images & Icons
-import chartIcon from "../../assets/images/chartIcon.svg";
+import {
+  Box,
+  ButtonBase,
+  createTheme,
+  Fade,
+  IconButton,
+  Rating,
+  ThemeProvider,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 
 // Components used
 import { skillItems } from "../../datas/Data";
-import SkillChartModal from "./others/SkillChartModal";
 import { fadeInFromLeft } from "../../ui-helpers/animations/CustomAnimations";
 
 const SkillsPage = () => {
-  const [chartOpen, setChartOpen] = useState(false);
-
-  const handleOpenChart = () => setChartOpen(true);
-  const handleCloseChart = () => setChartOpen(false);
-
   return (
-    <>
-      <Fade in={true} timeout={500} id="skills">
-        <Box sx={parentBox}>
-          <Box>
-            <Typography sx={textOneStyle}>Skills</Typography>
-          </Box>
-
-          <Box sx={contentBox}>
-            {skillItems?.map((item, index) => {
-              return (
-                <Box key={item?.id} sx={skillBox}>
-                  <Box sx={textWithIconBox}>
-                    <Typography sx={textTwoStyle}>
-                      {item?.heading ?? "--"}
-                    </Typography>
-
-                    <IconButton
-                      sx={chartIconBtn}
-                      title={"Chart"}
-                      onClick={handleOpenChart}
-                    >
-                      <Box component="img" src={chartIcon} alt="icon" />
-                    </IconButton>
-                  </Box>
-
-                  <Box sx={itemBox}>
-                    {item?.skill.map((subItem) => {
-                      return (
-                        <motion.div
-                          key={subItem?.id}
-                          initial={{ opacity: 0, translateX: "-100%" }}
-                          whileInView={{ opacity: 1, translateX: 0 }}
-                          viewport={{ once: true, amount: 0.1 }}
-                          transition={{
-                            duration: 0.6,
-                            delay: index * 0.2,
-                            ease: [0.8, 0.8, 0.8, 1],
-                          }}
-                          variants={fadeInFromLeft}
-                        >
-                          <Box sx={eachItemBox}>
-                            <Box sx={iconBox}>
-                              <Box
-                                component="img"
-                                src={subItem.icon}
-                                sx={iconStyle}
-                                alt="icon"
-                              />
-                            </Box>
-
-                            <Typography sx={textThreeStyle}>
-                              {subItem?.itemName ?? "--"}
-                            </Typography>
-                          </Box>
-                        </motion.div>
-                      );
-                    })}
-                  </Box>
-                </Box>
-              );
-            })}
-          </Box>
+    <Fade in={true} timeout={500} id="skills">
+      <Box sx={parentBox}>
+        <Box>
+          <Typography sx={textOneStyle}>Skills</Typography>
         </Box>
-      </Fade>
 
-      {chartOpen && (
-        <SkillChartModal open={chartOpen} handleClose={handleCloseChart} />
-      )}
-    </>
+        <Box sx={contentBox}>
+          {skillItems?.map((item) => {
+            return (
+              <Box key={item?.id} sx={skillBox}>
+                <Box>
+                  <Typography sx={textTwoStyle}>
+                    {item?.heading ?? "--"}
+                  </Typography>
+                </Box>
+
+                <Box sx={itemBox}>
+                  {item?.skill.map((subItem, index) => {
+                    return (
+                      <motion.div
+                        key={subItem?.id}
+                        variants={fadeInFromLeft}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        transition={{
+                          duration: 0.4,
+                          delay: index * 0.2,
+                          type: "spring",
+                          stiffness: 60,
+                          damping: 30,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        <ThemeProvider theme={theme}>
+                          <Tooltip
+                            arrow
+                            title={
+                              <Rating
+                                name="read-only"
+                                readOnly
+                                precision={0.5}
+                                size="large"
+                                value={subItem?.rating ?? 0}
+                              />
+                            }
+                          >
+                            <ButtonBase sx={eachItemBox}>
+                              <Box sx={iconBox}>
+                                <Box
+                                  component="img"
+                                  src={subItem.icon}
+                                  sx={iconStyle}
+                                  alt="icon"
+                                />
+                              </Box>
+
+                              <Typography sx={textThreeStyle}>
+                                {subItem?.itemName ?? "--"}
+                              </Typography>
+                            </ButtonBase>
+                          </Tooltip>
+                        </ThemeProvider>
+                      </motion.div>
+                    );
+                  })}
+                </Box>
+              </Box>
+            );
+          })}
+        </Box>
+      </Box>
+    </Fade>
   );
 };
 
@@ -151,27 +156,26 @@ const skillBox = {
   },
 };
 
-const textWithIconBox = {
-  display: "flex",
-  alignItems: "center",
-  gap: "8px",
-};
-
-const chartIconBtn = {
-  transition: "transform 0.2s ease-in-out",
-
-  "&:hover": {
-    transform: "scale(1.4)",
-    bgcolor: "var(--btnHoverFavBg--)",
-  },
-};
-
 const itemBox = {
   display: "flex",
   alignItems: "center",
   flexWrap: "wrap",
   gap: "1.5rem",
 };
+
+const theme = createTheme({
+  components: {
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: {
+          backgroundColor: "transparent",
+          border: "3px solid var(--favBlue--)",
+          borderRadius: "6px",
+        },
+      },
+    },
+  },
+});
 
 const eachItemBox = {
   display: "flex",
