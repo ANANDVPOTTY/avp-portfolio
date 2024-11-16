@@ -8,6 +8,7 @@ import { styled, useMediaQuery } from "@mui/system";
 import mouseIcon from "../../assets/images/mouseIcon.svg";
 import resumeIcon from "../../assets/images/resumeIcon.svg";
 import placeholderImg from "../../assets/images/devBlack.png";
+import myDpImg from "../../assets/images/dp.jpg";
 import doubleArwIcon from "../../assets/images/doubleArrow.svg";
 
 // Tones Used
@@ -248,7 +249,7 @@ const dpStyle = {
   borderRadius: "8px",
   boxShadow: "var(--boxShadOne--)",
   animation: `${bounceInRight} 1.5s both`,
-  animationDelay: "0.18s",
+  animationDelay: "0.5s",
 
   /*-------| Display Scale 150% |-------*/
   "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
