@@ -270,17 +270,17 @@ export const projectText = [
   {
     id: 1,
     heading: "React",
-    dscr: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ad qui, ipsam quisquam aliquid id quia rerum? Natus itaque quas suscipit, odio ipsam dolores voluptatibus ullam soluta maiores, ex blanditiis libero culpa esse illum magni adipisci eveniet eaque deserunt nesciunt.",
+    dscr: "I have experience working on diverse projects using the React framework, including LMS platforms, an insurance system, a car parking app, and advanced document reading tools, showcasing my expertise in building user-centric solutions.",
   },
   {
     id: 2,
     heading: "React-Native",
-    dscr: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ad qui, ipsam quisquam aliquid id quia rerum? Natus itaque quas suscipit, odio ipsam dolores voluptatibus ullam soluta maiores, ex blanditiis libero culpa esse illum magni adipisci eveniet eaque deserunt nesciunt.",
+    dscr: "I completed an internship focused on a React Native project, where I contributed to developing a Case Management System, enhancing my skills in building cross-platform applications with seamless functionality and user-friendly interfaces.",
   },
   {
     id: 3,
     heading: "Flutter",
-    dscr: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ad qui, ipsam quisquam aliquid id quia rerum? Natus itaque quas suscipit, odio ipsam dolores voluptatibus ullam soluta maiores, ex blanditiis libero culpa esse illum magni adipisci eveniet eaque deserunt nesciunt.",
+    dscr: "I am currently in the learning phase of Flutter app development, focusing on building foundational skills. As part of my practice, I have developed a quiz application, two game applications, and a to-do list to enhance my expertise.",
   },
 ];
 
@@ -305,5 +305,36 @@ export const contactItems = [
     id: 4,
     link: "",
     icon: whatsAppIcon,
+  },
+];
+
+//-------| Testimonials Datas |-------//
+export const insightsData = [
+  {
+    id: "1",
+    firstName: "John",
+    lastName: "Doe",
+    designation: "Developer",
+    imageUrl: "",
+    userComment:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et in vel, voluptatum qui obcaecati veniam quibusdam eaque placeat! Nihil inventore ab officiis nam et esse veniam. Sint nemo quo eveniet architecto? Earum labore porro incidunt suscipit magni ipsa necessitatibus dolores, non ad eius voluptates, eveniet veritatis adipisci, deserunt obcaecati eum reprehenderit iure. Voluptates incidunt velit soluta ipsum placeat, quos fugiat recusandae accusantium deserunt molestias, quaerat impedit reiciendis itaque earum consectetur id alias autem officiis vero iusto doloremque. Laboriosam aliquam ad, vitae facere veniam velit corrupti eius, esse animi quae cumque, temporibus tempora amet atque? Incidunt sint facilis maxime quo.",
+  },
+  {
+    id: "2",
+    firstName: "Jane",
+    lastName: "Smith",
+    designation: "Developer",
+    imageUrl: "",
+    userComment:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et in vel, voluptatum qui obcaecati veniam quibusdam eaque placeat! Nihil inventore ab officiis nam et esse veniam. Sint nemo quo eveniet architecto? Earum labore porro incidunt suscipit magni ipsa necessitatibus dolores, non ad eius voluptates, eveniet veritatis adipisci, deserunt obcaecati eum reprehenderit iure. Voluptates incidunt velit soluta ipsum placeat, quos fugiat recusandae accusantium deserunt molestias, quaerat impedit reiciendis itaque earum consectetur id alias autem officiis vero iusto doloremque. Laboriosam aliquam ad, vitae facere veniam velit corrupti eius, esse animi quae cumque, temporibus tempora amet atque? Incidunt sint facilis maxime quo.",
+  },
+  {
+    id: "3",
+    firstName: "Narayana",
+    lastName: "Moorthy",
+    designation: "CEO",
+    imageUrl: "",
+    userComment:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et in vel, voluptatum qui obcaecati veniam quibusdam eaque placeat! Nihil inventore ab officiis nam et esse veniam. Sint nemo quo eveniet architecto? Earum labore porro incidunt suscipit magni ipsa necessitatibus dolores, non ad eius voluptates, eveniet veritatis adipisci, deserunt obcaecati eum reprehenderit iure. Voluptates incidunt velit soluta ipsum placeat, quos fugiat recusandae accusantium deserunt molestias, quaerat impedit reiciendis itaque earum consectetur id alias autem officiis vero iusto doloremque. Laboriosam aliquam ad, vitae facere veniam velit corrupti eius, esse animi quae cumque, temporibus tempora amet atque? Incidunt sint facilis maxime quo.",
   },
 ];

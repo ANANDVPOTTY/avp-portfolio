@@ -5,11 +5,14 @@ import { Box, IconButton, Button, Fade, Typography } from "@mui/material";
 import { styled, useMediaQuery } from "@mui/system";
 
 // Images & Icons
+import myDpImg from "../../assets/images/dp.jpg";
 import mouseIcon from "../../assets/images/mouseIcon.svg";
 import resumeIcon from "../../assets/images/resumeIcon.svg";
 import placeholderImg from "../../assets/images/devBlack.png";
-import myDpImg from "../../assets/images/dp.jpg";
 import doubleArwIcon from "../../assets/images/doubleArrow.svg";
+
+// Documents
+import myResume from "../../assets/docs/anandVpottyResume.pdf";
 
 // Tones Used
 import swipeTone from "../../assets/tones/swipe.mp3";
@@ -22,20 +25,20 @@ import {
   bounceInUp,
   fadeInLeft,
 } from "../../ui-helpers/animations/CustomAnimations";
-import MuiSnackToast from "../../ui-helpers/mui-toast/MuiSnackToast";
 
 const HomePage = ({ onNavigate }) => {
   const isSmall = useMediaQuery("(max-width:220px)");
   const audioRef = useRef(new Audio(swipeTone));
-
-  const [openToast, setOpenToast] = useState(false);
 
   const handleResumeBtn = () => {
     audioRef.current.play().catch((error) => {
       console.error("Error playing sound:", error);
     });
 
-    setOpenToast(true);
+    const link = document.createElement("a");
+    link.href = myResume;
+    link.download = "avp-resume.pdf";
+    link.click();
   };
 
   const handleMouseBtn = (menuLink) => {
@@ -47,75 +50,65 @@ const HomePage = ({ onNavigate }) => {
   };
 
   return (
-    <>
-      <Fade in={true} timeout={500} id="home">
-        <Box sx={parentBox}>
-          <Box sx={contentBox}>
-            <Box sx={textContainer}>
-              {homeText?.map((item) => {
-                return (
-                  <CustomText
-                    key={item.id}
-                    colr={item?.colr}
-                    weight={item?.weight}
-                    delay={item?.delay}
-                  >
-                    {item?.text ?? "--"}
-                  </CustomText>
-                );
-              })}
+    <Fade in={true} timeout={500} id="home">
+      <Box sx={parentBox}>
+        <Box sx={contentBox}>
+          <Box sx={textContainer}>
+            {homeText?.map((item) => {
+              return (
+                <CustomText
+                  key={item.id}
+                  colr={item?.colr}
+                  weight={item?.weight}
+                  delay={item?.delay}
+                >
+                  {item?.text ?? "--"}
+                </CustomText>
+              );
+            })}
 
-              <Box>
-                {!isSmall ? (
-                  <Button
-                    variant="outlined"
-                    size="large"
-                    sx={resumeBtn}
+            <Box>
+              {!isSmall ? (
+                <Button
+                  variant="outlined"
+                  size="large"
+                  sx={resumeBtn}
+                  onClick={handleResumeBtn}
+                >
+                  Get my resume
+                </Button>
+              ) : (
+                <IconButton>
+                  <Box
+                    component="img"
+                    src={resumeIcon}
+                    alt="Resume"
                     onClick={handleResumeBtn}
-                  >
-                    Get my resume
-                  </Button>
-                ) : (
-                  <IconButton>
-                    <Box
-                      component="img"
-                      src={resumeIcon}
-                      alt="Resume"
-                      onClick={handleResumeBtn}
-                    />
-                  </IconButton>
-                )}
-              </Box>
-            </Box>
-
-            <Box sx={dpBox}>
-              <Box component="img" src={placeholderImg} alt="dp" sx={dpStyle} />
+                  />
+                </IconButton>
+              )}
             </Box>
           </Box>
 
-          <Box sx={mouseBox}>
-            <Box component="img" src={mouseIcon} alt="mouse" />
-
-            <IconButton onClick={handleMouseBtn}>
-              <Box
-                component="img"
-                src={doubleArwIcon}
-                alt="arrows"
-                sx={arrowAnimation}
-              />
-            </IconButton>
+          <Box sx={dpBox}>
+            <Box component="img" src={placeholderImg} alt="dp" sx={dpStyle} />
           </Box>
         </Box>
-      </Fade>
 
-      {openToast && (
-        <MuiSnackToast
-          open={openToast}
-          text={"upcoming..."}
-          handleClose={() => setOpenToast(false)}
-        />
-      )}
-    </>
+        <Box sx={mouseBox}>
+          <Box component="img" src={mouseIcon} alt="mouse" />
+
+          <IconButton onClick={handleMouseBtn}>
+            <Box
+              component="img"
+              src={doubleArwIcon}
+              alt="arrows"
+              sx={arrowAnimation}
+            />
+          </IconButton>
+        </Box>
+      </Box>
+    </Fade>
   );
 };
 

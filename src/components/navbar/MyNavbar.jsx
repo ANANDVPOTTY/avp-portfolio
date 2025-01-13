@@ -21,10 +21,15 @@ import {
 // Images & Icons
 import MenuIcon from "@mui/icons-material/Menu";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 import logo from "../../assets/images/logos/roundLogoDark.svg";
 import logoImg from "../../assets/images/logos/lineLogoLite.svg";
 
 // Tones Used
+// import mute from "../../assets/tones/volumeOff.mp3";
+// import unMute from "../../assets/tones/volumeOn.mp3";
+import mute from "../../assets/tones/pluck-off.mp3";
+import unMute from "../../assets/tones/pluck-on.mp3";
 import clickTone from "../../assets/tones/MouseClick.mp3";
 
 // Components used
@@ -36,6 +41,7 @@ const MyNavbar = ({ onNavigate }) => {
   const drawerWidth = 240;
   const audioRef = useRef(new Audio(clickTone));
 
+  const [isMuted, setIsMuted] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleLogoClick = () => {
@@ -54,6 +60,17 @@ const MyNavbar = ({ onNavigate }) => {
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
+  };
+
+  const handleToggle = () => {
+    setIsMuted((prev) => {
+      const newMutedState = !prev;
+
+      const sound = new Audio(newMutedState ? mute : unMute);
+      sound.play();
+
+      return newMutedState;
+    });
   };
 
   const drawerUiContent = (
@@ -82,8 +99,8 @@ const MyNavbar = ({ onNavigate }) => {
         <Box sx={themeAndMuteBtnBoxForSmall}>
           <ThemeSwitch />
 
-          <IconButton>
-            <VolumeUpIcon />
+          <IconButton onClick={handleToggle}>
+            {isMuted ? <VolumeOffIcon /> : <VolumeUpIcon />}
           </IconButton>
         </Box>
       </Box>
@@ -121,8 +138,8 @@ const MyNavbar = ({ onNavigate }) => {
             <Box sx={themeAndMuteBtnBoxForLarge}>
               <ThemeSwitch />
 
-              <IconButton>
-                <VolumeUpIcon />
+              <IconButton onClick={handleToggle}>
+                {isMuted ? <VolumeOffIcon /> : <VolumeUpIcon />}
               </IconButton>
             </Box>
           </Box>

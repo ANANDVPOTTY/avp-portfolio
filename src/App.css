@@ -100,6 +100,8 @@
   --fullWhite--: #ffffff;
   --favBlue--: #00abfa73;
   --favYellow--: #ccbe02;
+  --favBg2--: rgba(72, 127, 169, 0.256);
+  --favBg3--: #2b2a2a;
 
   --btnHoverFavBg--: #1f1a1e63;
   --drawerBg--: linear-gradient(to right, #141e30, #243b55);

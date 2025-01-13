@@ -14,6 +14,7 @@ import ProjectsPage from "../projects/ProjectsPage";
 import MyNavbar from "../../components/navbar/MyNavbar";
 import FooterComp from "../../components/footer/FooterComp";
 import FloatingBar from "../../components/floating-bar/FloatingBar";
+import MyTestimonials from "../testimonials/MyTestimonials";
 
 const ParentFile = () => {
   const scrollToSection = (id) => {
@@ -33,6 +34,7 @@ const ParentFile = () => {
           <AboutPage />
           <SkillsPage />
           <ProjectsPage />
+          <MyTestimonials />
           <ContactsPage onNavigate={scrollToSection} />
           <FooterComp onNavigate={scrollToSection} />
         </Box>

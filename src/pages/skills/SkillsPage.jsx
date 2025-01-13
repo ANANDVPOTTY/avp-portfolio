@@ -59,11 +59,18 @@ const SkillsPage = () => {
                             arrow
                             title={
                               <Rating
-                                name="read-only"
                                 readOnly
                                 precision={0.5}
-                                size="large"
+                                size="small"
                                 value={subItem?.rating ?? 0}
+                                sx={{
+                                  "& .MuiRating-iconFilled": {
+                                    color: "#FFFF00", // Filled star color
+                                  },
+                                  "& .MuiRating-iconEmpty": {
+                                    color: "#CCCCCC", // Empty star color (optional)
+                                  },
+                                }}
                               />
                             }
                           >
@@ -169,8 +176,6 @@ const theme = createTheme({
       styleOverrides: {
         tooltip: {
           backgroundColor: "transparent",
-          border: "3px solid var(--favBlue--)",
-          borderRadius: "6px",
         },
       },
     },
@@ -202,7 +207,7 @@ const iconBox = {
   overflow: "hidden",
   borderRadius: "8px",
   p: "5px",
-  bgcolor: "#2b2a2a",
+  bgcolor: "var(--favBg3--)",
   border: "1px solid var(--lightColor--)",
 };
 

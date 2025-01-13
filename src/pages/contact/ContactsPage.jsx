@@ -120,7 +120,7 @@ const linksWrapperBox = {
   gap: "2rem",
   p: "2rem",
   borderRadius: "12px",
-  backgroundColor: "rgba(72, 127, 169, 0.256)",
+  bgcolor: "var(--favBg2--)",
 };
 
 const eachLinkItem = {
