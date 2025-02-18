@@ -57,6 +57,7 @@ export const homeText = [
   {
     id: 1,
     text: "Hello! I am",
+    ffamily: "var(--fontFamilyOne--)",
     colr: "var(--lightGrayTypeOne--)",
     weight: 300,
     delay: 0.4,
@@ -64,13 +65,15 @@ export const homeText = [
   {
     id: 2,
     text: "Anand V Potty",
+    ffamily: "var(--fontFamilyOne--)",
     colr: "var(--fullWhite--)",
-    weight: 600,
+    weight: 400,
     delay: 0.45,
   },
   {
     id: 3,
     text: "Front-End Developer",
+    ffamily: "var(--fontFamilyOne--)",
     colr: "var(--favPink--)",
     weight: 500,
     delay: 0.5,
@@ -78,23 +81,29 @@ export const homeText = [
   {
     id: 4,
     text: "As a passionate junior Front-End Developer based in Kerala, I have dedicated myself to mastering the latest technologies through self-study and hands-on experience. By developing numerous projects, I have sharpened my skills and enjoyed the rewarding experience of delivering fulfilling solutions for my clients.",
+    ffamily: "var(--fontFamilyTwo--)",
     colr: "var(--lightGrayTypeTwo--)",
     weight: 200,
     delay: 0.55,
+    mb: "10px",
   },
   {
     id: 5,
     text: "There's a unique thrill that comes with embarking on new projects, accompanied by the surreal satisfaction of watching my creations come to life.",
+    ffamily: "var(--fontFamilyTwo--)",
     colr: "var(--lightGrayTypeTwo--)",
     weight: 200,
     delay: 0.6,
+    mb: "10px",
   },
   {
     id: 6,
     text: "I am committed to crafting visually stunning and user-friendly websites, and I eagerly seek opportunities to further enhance my expertise and contribute to innovative web experiences.",
+    ffamily: "var(--fontFamilyTwo--)",
     colr: "var(--lightGrayTypeTwo--)",
     weight: 200,
     delay: 0.65,
+    mb: "10px",
   },
 ];
 

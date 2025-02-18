@@ -257,7 +257,7 @@ const menuBtnContainer = {
 };
 
 const navBtns = {
-  p: "1px 10px",
+  p: "1px 16px",
 
   fontSize: {
     lg: "var(--fontFor-16px-Lg--)",
@@ -266,7 +266,8 @@ const navBtns = {
     xs: "var(--fontFor-16px-Xs--)",
   },
 
-  fontWeight: "400",
+  fontFamily: "var(--fontFamilyTwo--)",
+  fontWeight: "300",
   color: "var(--fullWhite--)",
   textTransform: "capitalize",
   borderRadius: "5px",
@@ -274,6 +275,7 @@ const navBtns = {
   border: "none",
 
   "&:hover": {
+    fontWeight: "400",
     bgcolor: "var(--btnHoverBg--)",
   },
 

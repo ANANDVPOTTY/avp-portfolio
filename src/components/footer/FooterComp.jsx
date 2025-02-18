@@ -164,6 +164,7 @@ const textOneStyle = {
     xs: "var(--fontFor-20px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyTwo--)",
   fontWeight: "400",
   color: "var(--fullWhite--)",
   textAlign: "center",
@@ -187,6 +188,7 @@ const textTwoStyle = {
     xs: "var(--fontFor-16px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyOne--)",
   fontWeight: "400",
   color: "var(--favPink--)",
   textAlign: "center",

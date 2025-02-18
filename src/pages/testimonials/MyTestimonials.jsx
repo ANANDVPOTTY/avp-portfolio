@@ -183,6 +183,7 @@ const textOneStyle = {
     xs: "var(--fontFor-48px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyOne--)",
   fontWeight: "400",
   color: "var(--fullWhite--)",
   textAlign: "center",
@@ -200,6 +201,7 @@ const textOneStyle = {
 
 const textTwoStyle = {
   height: "10rem",
+
   fontSize: {
     lg: "var(--fontFor-18px-Lg--)",
     md: "var(--fontFor-18px-Md--)",
@@ -207,7 +209,8 @@ const textTwoStyle = {
     xs: "var(--fontFor-18px-Xs--)",
   },
 
-  fontWeight: "400",
+  fontFamily: "var(--fontFamilyTwo--)",
+  fontWeight: "300",
   color: "var(--fullWhite--)",
   textAlign: "center",
   overflow: "auto",
@@ -231,7 +234,8 @@ const textThreeStyle = {
     xs: "var(--fontFor-16px-Xs--)",
   },
 
-  fontWeight: "400",
+  fontFamily: "var(--fontFamilyOne--)",
+  fontWeight: "300",
   color: "var(--fullWhite--)",
   textAlign: "center",
 
@@ -254,7 +258,8 @@ const textFourStyle = {
     xs: "var(--fontFor-14px-Xs--)",
   },
 
-  fontWeight: "600",
+  fontFamily: "var(--fontFamilyTwo--)",
+  fontWeight: "400",
   color: "var(--favYellow--)",
   textAlign: "center",
 

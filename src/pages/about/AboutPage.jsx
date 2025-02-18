@@ -133,6 +133,7 @@ const textOneStyle = {
     xs: "var(--fontFor-48px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyOne--)",
   fontWeight: "400",
   color: "var(--fullWhite--)",
   textAlign: "center",
@@ -156,6 +157,7 @@ const textTwoStyle = {
     xs: "var(--fontFor-36px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyOne--)",
   fontWeight: "300",
   color: "var(--favPink--)",
 
@@ -172,24 +174,24 @@ const textTwoStyle = {
 
 const textThreeStyle = {
   fontSize: {
-    lg: "var(--fontFor-26px-Lg--)",
-    md: "var(--fontFor-26px-Md--)",
-    sm: "var(--fontFor-26px-Sm--)",
-    xs: "var(--fontFor-26px-Xs--)",
+    lg: "var(--fontFor-24px-Lg--)",
+    md: "var(--fontFor-24px-Md--)",
+    sm: "var(--fontFor-24px-Sm--)",
+    xs: "var(--fontFor-24px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyTwo--)",
   fontWeight: "300",
   color: "var(--lightGrayTypeOne--)",
   textAlign: "center",
-  lineHeight: 1.3,
 
   /*-------| Display Scale 125% |-------*/
   "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
-    fontSize: "var(--fontFor-26px-Md--)",
+    fontSize: "var(--fontFor-24px-Md--)",
   },
 
   /*-------| Display Scale 150% |-------*/
   "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
-    fontSize: "var(--fontFor-26px-Xs--)",
+    fontSize: "var(--fontFor-24px-Xs--)",
   },
 };

@@ -126,6 +126,7 @@ const textOneStyle = {
     xs: "var(--fontFor-48px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyOne--)",
   fontWeight: "400",
   color: "var(--fullWhite--)",
   textAlign: "center",
@@ -149,6 +150,7 @@ const textTwoStyle = {
     xs: "var(--fontFor-36px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyOne--)",
   fontWeight: "300",
   color: "var(--favPink--)",
 
@@ -171,6 +173,7 @@ const textThreeStyle = {
     xs: "var(--fontFor-26px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyTwo--)",
   fontWeight: "300",
   color: "var(--lightGrayTypeOne--)",
   textAlign: "center",

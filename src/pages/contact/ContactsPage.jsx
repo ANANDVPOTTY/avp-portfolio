@@ -212,6 +212,7 @@ const textOneStyle = {
     xs: "var(--fontFor-48px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyOne--)",
   fontWeight: "400",
   color: "var(--fullWhite--)",
   textAlign: "center",
@@ -235,7 +236,8 @@ const textTwoStyle = {
     xs: "var(--fontFor-26px-Xs--)",
   },
 
-  fontWeight: "300",
+  fontFamily: "var(--fontFamilyTwo--)",
+  fontWeight: "400",
   color: "var(--lightGrayTypeOne--)",
   textAlign: "center",
   lineHeight: 1.3,
@@ -253,6 +255,7 @@ const textTwoStyle = {
 
 const movingTextStyle = {
   fontSize: "28px",
+  fontFamily: "var(--fontFamilyTwo--)",
   fontWeight: "600",
   color: "var(--favYellow--)",
 };

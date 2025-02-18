@@ -61,6 +61,8 @@ const HomePage = ({ onNavigate }) => {
                   colr={item?.colr}
                   weight={item?.weight}
                   delay={item?.delay}
+                  ffamily={item.ffamily}
+                  mb={item.mb}
                 >
                   {item?.text ?? "--"}
                 </CustomText>
@@ -156,39 +158,43 @@ const textContainer = {
   gap: "10px",
 };
 
-const CustomText = styled(Typography)(({ theme, colr, weight, delay }) => ({
-  [theme.breakpoints.up("xs")]: {
-    fontSize: "var(--fontFor-26px-Xs--)",
-  },
+const CustomText = styled(Typography)(
+  ({ theme, colr, weight, delay, ffamily, mb }) => ({
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "var(--fontFor-24px-Xs--)",
+    },
 
-  [theme.breakpoints.up("sm")]: {
-    fontSize: "var(--fontFor-26px-Sm--)",
-  },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "var(--fontFor-24px-Sm--)",
+    },
 
-  [theme.breakpoints.up("md")]: {
-    fontSize: "var(--fontFor-26px-Md--)",
-  },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "var(--fontFor-24px-Md--)",
+    },
 
-  [theme.breakpoints.up("lg")]: {
-    fontSize: "var(--fontFor-26px-Lg--)",
-  },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "var(--fontFor-24px-Lg--)",
+    },
 
-  fontWeight: weight || 400,
-  color: colr || "#ffffff",
-  lineHeight: 1.3,
-  animation: `${fadeInLeft} 1s both`,
-  animationDelay: `${delay || 0}s`,
+    mb: mb || 0,
+    fontFamily: ffamily,
+    fontWeight: weight || 400,
+    color: colr || "#ffffff",
+    lineHeight: 1.3,
+    animation: `${fadeInLeft} 1s both`,
+    animationDelay: `${delay || 0}s`,
 
-  /*-------| Display Scale 125% |-------*/
-  "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
-    fontSize: "var(--fontFor-26px-Md--)",
-  },
+    /*-------| Display Scale 125% |-------*/
+    "@media all and (min-resolution: 1.1dppx) and (max-resolution: 1.25dppx)": {
+      fontSize: "var(--fontFor-24px-Md--)",
+    },
 
-  /*-------| Display Scale 150% |-------*/
-  "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
-    fontSize: "var(--fontFor-20px-Xs--)",
-  },
-}));
+    /*-------| Display Scale 150% |-------*/
+    "@media all and (min-resolution: 1.26dppx) and (max-resolution: 1.5dppx)": {
+      fontSize: "var(--fontFor-20px-Xs--)",
+    },
+  })
+);
 
 const resumeBtn = {
   p: "1px 10px",
@@ -200,6 +206,7 @@ const resumeBtn = {
     xs: "var(--fontFor-26px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyTwo--)",
   fontWeight: "200",
   color: "var(--fullWhite--)",
   textTransform: "capitalize",
