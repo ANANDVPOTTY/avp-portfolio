@@ -126,6 +126,7 @@ const parentBox = {
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "space-between",
+  pt: "3rem",
 };
 
 const contentBox = {

@@ -63,14 +63,6 @@ const SkillsPage = () => {
                                 precision={0.5}
                                 size="small"
                                 value={subItem?.rating ?? 0}
-                                sx={{
-                                  "& .MuiRating-iconFilled": {
-                                    color: "#FFFF00", // Filled star color
-                                  },
-                                  "& .MuiRating-iconEmpty": {
-                                    color: "#CCCCCC", // Empty star color (optional)
-                                  },
-                                }}
                               />
                             }
                           >

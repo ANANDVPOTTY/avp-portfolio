@@ -5,9 +5,9 @@ import { Avatar, Box, Typography } from "@mui/material";
 
 // Images & Icons
 import avatar from "../../assets/images/avatar.jpg";
-import { insightsData } from "../../datas/Data";
 
 // Components used
+import { insightsData } from "../../datas/Data";
 
 const MyTestimonials = () => {
   const scrollRef = useRef(null);
@@ -119,8 +119,6 @@ const scrollBox = {
   cursor: "grab",
   overflow: "auto",
   userSelect: "none",
-  borderTop: "1px solid var(--favBg3--)",
-  borderBottom: "1px solid var(--favBg3--)",
 
   "&:active": {
     cursor: "grabbing",
