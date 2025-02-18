@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 // Mui
 import { Avatar, Box, Typography } from "@mui/material";
@@ -41,51 +42,106 @@ const MyTestimonials = () => {
     return `${firstInitial}${lastInitial}`;
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+
+    visible: {
+      opacity: 1,
+
+      transition: {
+        staggerChildren: 0.6,
+        when: "beforeChildren",
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+
+    visible: {
+      opacity: 1,
+      y: 0,
+
+      transition: {
+        type: "spring",
+        stiffness: 120,
+      },
+    },
+  };
+
+  const avatarVariants = {
+    hover: {
+      scale: 1.1,
+      transition: { type: "spring", stiffness: 300 },
+    },
+  };
+
+  const textVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return (
     <Box sx={parentBox}>
       <Box>
         <Typography sx={textOneStyle}>Insights</Typography>
       </Box>
 
-      <Box
-        title="&larr; Scrollable &rarr;"
+      <motion.div
         ref={scrollRef}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUpOrLeave}
         onMouseLeave={handleMouseUpOrLeave}
-        sx={scrollBox}
+        style={scrollBox}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+        whileTap={{ cursor: "grabbing" }}
       >
-        {insightsData?.map((item) => (
-          <Box sx={testimonialBox} key={item.id}>
-            <Box sx={imageBoxBg}>
-              <Box sx={imageBox}>
-                <Avatar
-                  sx={imageContainer}
-                  src={item.imageUrl}
-                  alt={`${item.firstName} ${item.lastName}`}
-                >
-                  {!item.imageUrl && getInitials(item.firstName, item.lastName)}
-                </Avatar>
+        {insightsData?.map((item, index) => (
+          <motion.div key={item.id} variants={cardVariants}>
+            <Box sx={testimonialBox}>
+              <Box sx={imageBoxBg}>
+                <Box sx={imageBox}>
+                  <motion.div variants={avatarVariants} whileHover="hover">
+                    <Avatar
+                      sx={imageContainer}
+                      src={item.imageUrl}
+                      component={motion.div}
+                    >
+                      {!item.imageUrl &&
+                        getInitials(item.firstName, item.lastName)}
+                    </Avatar>
+                  </motion.div>
 
-                <Box sx={nameAndDesignationBox}>
-                  <Typography sx={textThreeStyle}>
-                    {item.firstName}&nbsp;{item.lastName}
-                  </Typography>
+                  <motion.div
+                    variants={textVariants}
+                    transition={{ delay: 0.4 }}
+                  >
+                    <Box sx={nameAndDesignationBox}>
+                      <Typography sx={textThreeStyle}>
+                        {item.firstName}&nbsp;{item.lastName}
+                      </Typography>
 
-                  <Typography sx={textFourStyle}>
-                    - {item.designation} -
-                  </Typography>
+                      <Typography sx={textFourStyle}>
+                        - {item.designation} -
+                      </Typography>
+                    </Box>
+                  </motion.div>
                 </Box>
               </Box>
-            </Box>
 
-            <Box sx={detailsBox}>
-              <Typography sx={textTwoStyle}>{item.userComment}</Typography>
+              <motion.div variants={textVariants} transition={{ delay: 0.6 }}>
+                <Box sx={detailsBox}>
+                  <Typography sx={textTwoStyle}>{item.userComment}</Typography>
+                </Box>
+              </motion.div>
             </Box>
-          </Box>
+          </motion.div>
         ))}
-      </Box>
+      </motion.div>
     </Box>
   );
 };
