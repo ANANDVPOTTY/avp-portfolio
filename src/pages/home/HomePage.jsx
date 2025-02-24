@@ -5,17 +5,17 @@ import { Box, IconButton, Button, Fade, Typography } from "@mui/material";
 import { styled, useMediaQuery } from "@mui/system";
 
 // Images & Icons
-import myDpImg from "../../assets/images/dp.jpg";
-import mouseIcon from "../../assets/images/mouseIcon.svg";
-import resumeIcon from "../../assets/images/resumeIcon.svg";
-import placeholderImg from "../../assets/images/devBlack.png";
-import doubleArwIcon from "../../assets/images/doubleArrow.svg";
+// import myDpImg from "/assets/images/dp.jpg";
+import mouseIcon from "/assets/images/mouseIcon.svg";
+import resumeIcon from "/assets/images/resumeIcon.svg";
+import placeholderImg from "/assets/images/devBlack.png";
+import doubleArwIcon from "/assets/images/doubleArrow.svg";
 
 // Documents
-import myResume from "../../assets/docs/anandVpottyResume.pdf";
+// import myResume from "/assets/docs/anandVpottyResume.pdf";
 
 // Tones Used
-import swipeTone from "../../assets/tones/swipe.mp3";
+import swipeTone from "/assets/tones/swipe.mp3";
 
 // Components used
 import { homeText } from "../../datas/Data";
@@ -29,6 +29,8 @@ import {
 const HomePage = ({ onNavigate }) => {
   const isSmall = useMediaQuery("(max-width:220px)");
   const audioRef = useRef(new Audio(swipeTone));
+
+  const myResume = "";
 
   const handleResumeBtn = () => {
     audioRef.current.play().catch((error) => {

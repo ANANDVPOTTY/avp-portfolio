@@ -5,9 +5,9 @@ import { Box, Link } from "@mui/material";
 
 // Images & Icons
 import AdjustIcon from "@mui/icons-material/Adjust";
-import githubIcon from "../../assets/images/ghub2.svg";
-import gmailIcon from "../../assets/images/mailIcon.svg";
-import linkedinIcon from "../../assets/images/linkedinIcon.svg";
+import githubIcon from "/assets/images/ghub2.svg";
+import gmailIcon from "/assets/images/mailIcon.svg";
+import linkedinIcon from "/assets/images/linkedinIcon.svg";
 
 // Components used
 import {

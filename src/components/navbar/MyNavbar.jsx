@@ -22,15 +22,15 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import VolumeOffIcon from "@mui/icons-material/VolumeOff";
-import logo from "../../assets/images/logos/roundLogoDark.svg";
-import logoImg from "../../assets/images/logos/lineLogoLite.svg";
+import logo from "/assets/images/logos/roundLogoDark.svg";
+import logoImg from "/assets/images/logos/lineLogoLite.svg";
 
 // Tones Used
 // import mute from "../../assets/tones/volumeOff.mp3";
 // import unMute from "../../assets/tones/volumeOn.mp3";
-import mute from "../../assets/tones/pluck-off.mp3";
-import unMute from "../../assets/tones/pluck-on.mp3";
-import clickTone from "../../assets/tones/MouseClick.mp3";
+import mute from "/assets/tones/pluck-off.mp3";
+import unMute from "/assets/tones/pluck-on.mp3";
+import clickTone from "/assets/tones/MouseClick.mp3";
 
 // Components used
 import { navItems } from "../../datas/Data";
