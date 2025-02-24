@@ -4,6 +4,9 @@ import { ReactTyped } from "react-typed";
 // Mui
 import { Box, Fade, Link, Typography } from "@mui/material";
 
+// Video Used
+import bgVideo from "../../assets/videos/social.mp4";
+
 // Components used
 import { contactItems } from "../../datas/Data";
 import { forthAndBack } from "../../ui-helpers/animations/CustomAnimations";
@@ -32,23 +35,35 @@ const ContactsPage = () => {
           />
         </Box>
 
-        <Box sx={linksWrapperBox}>
-          {contactItems.map((item) => (
-            <Link
-              key={item.id}
-              href={null}
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={eachLinkItem}
-            >
-              <Box
-                component="img"
-                src={item?.icon}
-                alt="icon"
-                sx={iconsStyle}
-              />
-            </Link>
-          ))}
+        <Box sx={socialLinkBox}>
+          <Box
+            component="video"
+            src={bgVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            sx={bgVideoBox}
+          />
+
+          <Box sx={linksWrapperBox}>
+            {contactItems.map((item) => (
+              <Link
+                key={item.id}
+                href={null}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={eachLinkItem}
+              >
+                <Box
+                  component="img"
+                  src={item?.icon}
+                  alt="icon"
+                  sx={iconsStyle}
+                />
+              </Link>
+            ))}
+          </Box>
         </Box>
       </Box>
     </Fade>
@@ -104,14 +119,45 @@ const movingTextBox = {
   gap: "10px",
 };
 
+const socialLinkBox = {
+  width: "100%",
+  height: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  position: "relative",
+  overflow: "hidden",
+};
+
+const bgVideoBox = {
+  width: {
+    lg: "30%",
+    md: "30%",
+    sm: "100%",
+    xs: "100%",
+  },
+
+  height: "100%",
+  position: "absolute",
+  objectFit: "cover",
+  borderRadius: "12px",
+  zIndex: 0,
+};
+
 const linksWrapperBox = {
-  width: "30%",
+  width: {
+    lg: "30%",
+    md: "30%",
+    sm: "100%",
+    xs: "100%",
+  },
+
   display: "flex",
 
   flexDirection: {
     lg: "row",
     md: "row",
-    sm: "column",
+    sm: "row",
     xs: "column",
   },
 
@@ -119,8 +165,10 @@ const linksWrapperBox = {
   justifyContent: "center",
   gap: "2rem",
   p: "2rem",
+  position: "relative",
+  zIndex: 1,
   borderRadius: "12px",
-  backgroundColor: "rgba(72, 127, 169, 0.256)",
+  bgcolor: "var(--favBg2--)",
 };
 
 const eachLinkItem = {
@@ -129,12 +177,15 @@ const eachLinkItem = {
   display: "inline-flex",
   justifyContent: "center",
   alignItems: "center",
+  p: "4px",
   overflow: "hidden",
+  borderRadius: "8px",
+  bgcolor: "var(--favBg3--)",
+  border: "1px solid var(--lightColor--)",
   transition: "transform 0.2s ease-in-out",
 
   "&:hover": {
-    transform: "scale(1.2)",
-    bgcolor: "var(--btnHoverFavBg--)",
+    transform: "scale(1.5)",
   },
 };
 
@@ -161,6 +212,7 @@ const textOneStyle = {
     xs: "var(--fontFor-48px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyOne--)",
   fontWeight: "400",
   color: "var(--fullWhite--)",
   textAlign: "center",
@@ -184,7 +236,8 @@ const textTwoStyle = {
     xs: "var(--fontFor-26px-Xs--)",
   },
 
-  fontWeight: "300",
+  fontFamily: "var(--fontFamilyTwo--)",
+  fontWeight: "400",
   color: "var(--lightGrayTypeOne--)",
   textAlign: "center",
   lineHeight: 1.3,
@@ -202,6 +255,7 @@ const textTwoStyle = {
 
 const movingTextStyle = {
   fontSize: "28px",
+  fontFamily: "var(--fontFamilyTwo--)",
   fontWeight: "600",
   color: "var(--favYellow--)",
 };

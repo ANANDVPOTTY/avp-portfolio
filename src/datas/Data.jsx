@@ -57,6 +57,7 @@ export const homeText = [
   {
     id: 1,
     text: "Hello! I am",
+    ffamily: "var(--fontFamilyOne--)",
     colr: "var(--lightGrayTypeOne--)",
     weight: 300,
     delay: 0.4,
@@ -64,13 +65,15 @@ export const homeText = [
   {
     id: 2,
     text: "Anand V Potty",
+    ffamily: "var(--fontFamilyOne--)",
     colr: "var(--fullWhite--)",
-    weight: 600,
+    weight: 400,
     delay: 0.45,
   },
   {
     id: 3,
     text: "Front-End Developer",
+    ffamily: "var(--fontFamilyOne--)",
     colr: "var(--favPink--)",
     weight: 500,
     delay: 0.5,
@@ -78,23 +81,29 @@ export const homeText = [
   {
     id: 4,
     text: "As a passionate junior Front-End Developer based in Kerala, I have dedicated myself to mastering the latest technologies through self-study and hands-on experience. By developing numerous projects, I have sharpened my skills and enjoyed the rewarding experience of delivering fulfilling solutions for my clients.",
+    ffamily: "var(--fontFamilyTwo--)",
     colr: "var(--lightGrayTypeTwo--)",
     weight: 200,
     delay: 0.55,
+    mb: "10px",
   },
   {
     id: 5,
     text: "There's a unique thrill that comes with embarking on new projects, accompanied by the surreal satisfaction of watching my creations come to life.",
+    ffamily: "var(--fontFamilyTwo--)",
     colr: "var(--lightGrayTypeTwo--)",
     weight: 200,
     delay: 0.6,
+    mb: "10px",
   },
   {
     id: 6,
     text: "I am committed to crafting visually stunning and user-friendly websites, and I eagerly seek opportunities to further enhance my expertise and contribute to innovative web experiences.",
+    ffamily: "var(--fontFamilyTwo--)",
     colr: "var(--lightGrayTypeTwo--)",
     weight: 200,
     delay: 0.65,
+    mb: "10px",
   },
 ];
 
@@ -270,17 +279,17 @@ export const projectText = [
   {
     id: 1,
     heading: "React",
-    dscr: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ad qui, ipsam quisquam aliquid id quia rerum? Natus itaque quas suscipit, odio ipsam dolores voluptatibus ullam soluta maiores, ex blanditiis libero culpa esse illum magni adipisci eveniet eaque deserunt nesciunt.",
+    dscr: "I have experience working on diverse projects using the React framework, including LMS platforms, an insurance system, a car parking app, and advanced document reading tools, showcasing my expertise in building user-centric solutions.",
   },
   {
     id: 2,
     heading: "React-Native",
-    dscr: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ad qui, ipsam quisquam aliquid id quia rerum? Natus itaque quas suscipit, odio ipsam dolores voluptatibus ullam soluta maiores, ex blanditiis libero culpa esse illum magni adipisci eveniet eaque deserunt nesciunt.",
+    dscr: "I completed an internship focused on a React Native project, where I contributed to developing a Case Management System, enhancing my skills in building cross-platform applications with seamless functionality and user-friendly interfaces.",
   },
   {
     id: 3,
     heading: "Flutter",
-    dscr: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ad qui, ipsam quisquam aliquid id quia rerum? Natus itaque quas suscipit, odio ipsam dolores voluptatibus ullam soluta maiores, ex blanditiis libero culpa esse illum magni adipisci eveniet eaque deserunt nesciunt.",
+    dscr: "I am currently in the learning phase of Flutter app development, focusing on building foundational skills. As part of my practice, I have developed a quiz application, two game applications, and a to-do list to enhance my expertise.",
   },
 ];
 
@@ -305,5 +314,36 @@ export const contactItems = [
     id: 4,
     link: "",
     icon: whatsAppIcon,
+  },
+];
+
+//-------| Testimonials Datas |-------//
+export const insightsData = [
+  {
+    id: "1",
+    firstName: "Prasoon",
+    lastName: "Nair",
+    designation: "Senior Manager",
+    imageUrl: "",
+    userComment:
+      "Anand is an exceptional developer who consistently demonstrates a strong commitment to learning and delivering high-quality work. His ability to quickly grasp new concepts and apply them effectively is truly commendable. You played a crucial role in the development of our LMS, a project that posed significant challenges and required him to learn new technologies on the go. His hard work, accountability, and problem-solving skills ensured the successful completion of the project.Beyond his technical expertise, Anand is a fantastic team player who is always supportive of his colleagues. He collaborates seamlessly, offering help whenever needed and contributing to a positive work environment. His dedication and teamwork make him an invaluable asset to our team, and I look forward to seeing his continued growth and contributions.",
+  },
+  {
+    id: "2",
+    firstName: "Jane",
+    lastName: "Smith",
+    designation: "Developer",
+    imageUrl: "",
+    userComment:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et in vel, voluptatum qui obcaecati veniam quibusdam eaque placeat! Nihil inventore ab officiis nam et esse veniam. Sint nemo quo eveniet architecto? Earum labore porro incidunt suscipit magni ipsa necessitatibus dolores, non ad eius voluptates, eveniet veritatis adipisci, deserunt obcaecati eum reprehenderit iure. Voluptates incidunt velit soluta ipsum placeat, quos fugiat recusandae accusantium deserunt molestias, quaerat impedit reiciendis itaque earum consectetur id alias autem officiis vero iusto doloremque. Laboriosam aliquam ad, vitae facere veniam velit corrupti eius, esse animi quae cumque, temporibus tempora amet atque? Incidunt sint facilis maxime quo.",
+  },
+  {
+    id: "3",
+    firstName: "Narayana",
+    lastName: "Moorthy",
+    designation: "CEO",
+    imageUrl: "",
+    userComment:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et in vel, voluptatum qui obcaecati veniam quibusdam eaque placeat! Nihil inventore ab officiis nam et esse veniam. Sint nemo quo eveniet architecto? Earum labore porro incidunt suscipit magni ipsa necessitatibus dolores, non ad eius voluptates, eveniet veritatis adipisci, deserunt obcaecati eum reprehenderit iure. Voluptates incidunt velit soluta ipsum placeat, quos fugiat recusandae accusantium deserunt molestias, quaerat impedit reiciendis itaque earum consectetur id alias autem officiis vero iusto doloremque. Laboriosam aliquam ad, vitae facere veniam velit corrupti eius, esse animi quae cumque, temporibus tempora amet atque? Incidunt sint facilis maxime quo.",
   },
 ];

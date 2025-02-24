@@ -59,10 +59,9 @@ const SkillsPage = () => {
                             arrow
                             title={
                               <Rating
-                                name="read-only"
                                 readOnly
                                 precision={0.5}
-                                size="large"
+                                size="small"
                                 value={subItem?.rating ?? 0}
                               />
                             }
@@ -169,8 +168,6 @@ const theme = createTheme({
       styleOverrides: {
         tooltip: {
           backgroundColor: "transparent",
-          border: "3px solid var(--favBlue--)",
-          borderRadius: "6px",
         },
       },
     },
@@ -202,7 +199,7 @@ const iconBox = {
   overflow: "hidden",
   borderRadius: "8px",
   p: "5px",
-  bgcolor: "#2b2a2a",
+  bgcolor: "var(--favBg3--)",
   border: "1px solid var(--lightColor--)",
 };
 
@@ -221,6 +218,7 @@ const textOneStyle = {
     xs: "var(--fontFor-48px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyOne--)",
   fontWeight: "400",
   color: "var(--fullWhite--)",
   textAlign: "center",
@@ -244,6 +242,7 @@ const textTwoStyle = {
     xs: "var(--fontFor-36px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyOne--)",
   fontWeight: "200",
   color: "var(--favPink--)",
 
@@ -266,6 +265,7 @@ const textThreeStyle = {
     xs: "var(--fontFor-20px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyTwo--)",
   fontWeight: "300",
   color: "var(--fullWhite--)",
   textAlign: "center",

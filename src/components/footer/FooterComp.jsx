@@ -19,6 +19,7 @@ import {
 
 const FooterComp = ({ onNavigate }) => {
   const audioRef = useRef(new Audio(swipeTone));
+  const currentYear = new Date().getFullYear();
 
   const handleArrowClick = () => {
     audioRef.current.play().catch((error) => {
@@ -73,7 +74,9 @@ const FooterComp = ({ onNavigate }) => {
           </Box>
         </Box>
 
-        <Typography sx={textTwoStyle}>© 2024. All rights reserved.</Typography>
+        <Typography sx={textTwoStyle}>
+          © {currentYear}. All rights reserved.
+        </Typography>
       </Box>
     </motion.div>
   );
@@ -161,6 +164,7 @@ const textOneStyle = {
     xs: "var(--fontFor-20px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyTwo--)",
   fontWeight: "400",
   color: "var(--fullWhite--)",
   textAlign: "center",
@@ -184,6 +188,7 @@ const textTwoStyle = {
     xs: "var(--fontFor-16px-Xs--)",
   },
 
+  fontFamily: "var(--fontFamilyOne--)",
   fontWeight: "400",
   color: "var(--favPink--)",
   textAlign: "center",

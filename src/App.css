@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.cdnfonts.com/css/lufga");
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Nunito", serif !important;
   font-optical-sizing: auto;
   font-style: normal;
   scroll-behavior: smooth;
@@ -100,6 +100,8 @@
   --fullWhite--: #ffffff;
   --favBlue--: #00abfa73;
   --favYellow--: #ccbe02;
+  --favBg2--: rgba(72, 127, 169, 0.256);
+  --favBg3--: #2b2a2a;
 
   --btnHoverFavBg--: #1f1a1e63;
   --drawerBg--: linear-gradient(to right, #141e30, #243b55);
@@ -111,6 +113,8 @@
   --boxShadTwo--: 0px 0px 40px 6px rgba(255, 221, 0, 0.5);
 
   /*-------| Common Values |-------*/
+  --fontFamilyOne--: "Lufga", sans-serif;
+  --fontFamilyTwo--: "Exo 2", serif;
   --padding-xDir-Lg--: 5.5rem;
   --padding-xDir-Md--: 3rem;
   --padding-xDir-Sm--: 1rem;
