@@ -321,12 +321,12 @@ export const contactItems = [
 export const insightsData = [
   {
     id: "1",
-    firstName: "John",
-    lastName: "Doe",
-    designation: "Developer",
+    firstName: "Prasoon",
+    lastName: "Nair",
+    designation: "Senior Manager",
     imageUrl: "",
     userComment:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et in vel, voluptatum qui obcaecati veniam quibusdam eaque placeat! Nihil inventore ab officiis nam et esse veniam. Sint nemo quo eveniet architecto? Earum labore porro incidunt suscipit magni ipsa necessitatibus dolores, non ad eius voluptates, eveniet veritatis adipisci, deserunt obcaecati eum reprehenderit iure. Voluptates incidunt velit soluta ipsum placeat, quos fugiat recusandae accusantium deserunt molestias, quaerat impedit reiciendis itaque earum consectetur id alias autem officiis vero iusto doloremque. Laboriosam aliquam ad, vitae facere veniam velit corrupti eius, esse animi quae cumque, temporibus tempora amet atque? Incidunt sint facilis maxime quo.",
+      "Anand is an exceptional developer who consistently demonstrates a strong commitment to learning and delivering high-quality work. His ability to quickly grasp new concepts and apply them effectively is truly commendable. You played a crucial role in the development of our LMS, a project that posed significant challenges and required him to learn new technologies on the go. His hard work, accountability, and problem-solving skills ensured the successful completion of the project.Beyond his technical expertise, Anand is a fantastic team player who is always supportive of his colleagues. He collaborates seamlessly, offering help whenever needed and contributing to a positive work environment. His dedication and teamwork make him an invaluable asset to our team, and I look forward to seeing his continued growth and contributions.",
   },
   {
     id: "2",
