@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import { Box, IconButton, Typography } from "@mui/material";
 
 // Images & Icons
-import logo from "../../assets/images/logos/roundLogoDark.svg";
-import arrowUpIcon from "../../assets/images/arrowUp.svg";
+import logo from "/assets/images/logos/roundLogoDark.svg";
+import arrowUpIcon from "/assets/images/arrowUp.svg";
 
 // Tones Used
-import swipeTone from "../../assets/tones/swipe.mp3";
+import swipeTone from "/assets/tones/swipe.mp3";
 
 // Components used
 import {

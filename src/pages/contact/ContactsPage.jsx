@@ -5,7 +5,7 @@ import { ReactTyped } from "react-typed";
 import { Box, Fade, Link, Typography } from "@mui/material";
 
 // Video Used
-import bgVideo from "../../assets/videos/social.mp4";
+import bgVideo from "/assets/videos/social.mp4";
 
 // Components used
 import { contactItems } from "../../datas/Data";

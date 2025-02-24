@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Avatar, Box, Typography } from "@mui/material";
 
 // Images & Icons
-import avatar from "../../assets/images/avatar.jpg";
+import avatar from "/assets/images/avatar.jpg";
 
 // Components used
 import { insightsData } from "../../datas/Data";

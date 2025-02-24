@@ -7,7 +7,6 @@ import {
   ButtonBase,
   createTheme,
   Fade,
-  IconButton,
   Rating,
   ThemeProvider,
   Tooltip,

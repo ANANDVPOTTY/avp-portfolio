@@ -4,7 +4,7 @@ import React from "react";
 import { Box, Modal, Typography } from "@mui/material";
 
 // Images & Icons
-import img from "../../../assets/images/emptyStreet.svg";
+import img from "/assets/images/emptyStreet.svg";
 
 export default function SkillChartModal({ open, handleClose }) {
   return (
